@@ -2,9 +2,35 @@ body{
     margin: 0;
     font-family: 'Open Sans', sans-serif;
 }
+a, a:visited { color: inherit; text-decoration: underline; }
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0,0,0,0.85);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 8px;
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
 header{
     height: 65px;
-    background-color: #7b1fa2;
+    background-color: #3d3fec;
     color: white;
     display: flex;
     align-items: center;
@@ -22,7 +48,8 @@ header{
     height: calc(100vh - 65px);
     background-color: #303030;
     color: white;
-    /* padding-top: 10%; */
+    margin-bottom: 80px;
+    
 }
 .caja-central{
     margin-top: 10%;
@@ -52,14 +79,13 @@ header{
 
 .dos{
     background-color: #F2F2F2;
-    height: 700px;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     color: #303030;
-    padding-left: 20%;
-    padding-right: 20%;
+    padding: 80px 20%;
 }
 .aptitudes{
     width: 50%;
@@ -84,19 +110,39 @@ header{
     color: #F2F2F2;
 }
 .proyectos{
-    width: 60%;
+    width: 70%;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+}
+.proyecto{
+     display: flex;
+    flex-direction: column;  
+    align-items: center;      
+    text-align: center;       
+    gap: 20px;
+    max-width: 800px;
 }
 .card{
+     width: 300px;
+    flex-shrink: 0;
     text-align: center;
-    width: 30%;
     border: solid #F2F2F2 1px;
     border-radius: 10px;
     padding: 10px;
 }
 .card img{
     width: 100%;
+}
+.proyecto-info{
+    flex: 1;
+}
+.proyecto-info a:hover{
+    color: #f9f6fc;
+    text-decoration: underline;
+    font-weight: 600;
 }
 .card a, footer a {
     color: white;
@@ -124,6 +170,15 @@ footer{
 }
 
 @media (max-width: 1000px) {
+    .proyecto{
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .proyectos{
+        width: 90%;
+    }
     .caja-central{
         width: 90%;
         height: 70%;
