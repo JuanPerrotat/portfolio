@@ -98,9 +98,11 @@ header{
 }
 .dos a:hover{
     color:crimson;
+    text-decoration: underline;
 }
 .dos a{
-    text-decoration: none;
+    text-decoration:dashed;
+    color: blue;
 }
 .tech{
     height: 90px;
@@ -162,10 +164,11 @@ header{
     text-align: left;
 }
 .tres a{
-   text-decoration: none; 
+   text-decoration:solid;
 }
 .tres a:hover{
     color: maroon;
+    text-decoration: underline;
 }
 .red-social{
     height: 60px;
