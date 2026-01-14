@@ -126,7 +126,7 @@ header{
     max-width: 800px;
 }
 .card{
-     width: 300px;
+    width: 300px;
     flex-shrink: 0;
     text-align: center;
     border: solid #F2F2F2 1px;
