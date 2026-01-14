@@ -30,7 +30,7 @@ a, a:visited { color: inherit; text-decoration: underline; }
 }
 header{
     height: 65px;
-    background-color: #3d3fec;
+    background-color: #4a88eb;
     color: white;
     display: flex;
     align-items: center;
@@ -41,14 +41,14 @@ header{
     height: 200px;
 }
 .uno{
-    width: 100%;
+    /* width: 100%; */
     display: flex;
     flex-direction: row;
     justify-content: center;
-    height: calc(100vh - 65px);
+    height: 650px;
     background-color: #303030;
     color: white;
-    margin-bottom: 80px;
+    /* margin-bottom: 80px; */
     
 }
 .caja-central{
@@ -75,6 +75,7 @@ header{
     background-color: #F2F2F2;
     color: #303030;
     padding: 10px;
+    text-align: justify;
 }
 
 .dos{
@@ -95,14 +96,21 @@ header{
     justify-content: space-between;
     padding-top: 10px;
 }
-
+.dos a:hover{
+    color:crimson;
+}
+.dos a{
+    text-decoration: none;
+}
 .tech{
     height: 90px;
 }
-
+.cursos{
+    margin-top: 45px;
+}
 .tres{
     background-color: #303030;
-    height: 600px;
+    height: 850px;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
@@ -133,6 +141,9 @@ header{
     border-radius: 10px;
     padding: 10px;
 }
+.img-main:hover{
+    cursor: pointer;
+}
 .card img{
     width: 100%;
 }
@@ -147,7 +158,15 @@ header{
 .card a, footer a {
     color: white;
 }
-
+.listaAptitudes{
+    text-align: left;
+}
+.tres a{
+   text-decoration: none; 
+}
+.tres a:hover{
+    color: maroon;
+}
 .red-social{
     height: 60px;
     background-color: #F2F2F2;
