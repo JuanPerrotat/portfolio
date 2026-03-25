@@ -4,92 +4,250 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="portfolio.ico">
-    <title>Juan Perrotat - Portfolio</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="estilos.css">
-
+    <link rel="icon" href="Images/portfolio.png">
+    <title>Juan Perrotat | Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="Content/estilos.css">
 </head>
-
-<style>
-   
-</style>
-
 <body>
-    <header>
-        <h3>Juan Perrotat | Desarrollador .NET Jr</h3>
-    </header>
-    <section class="uno">
-        <div class="caja-central">
-            <div class="caja-cara">
-                <img class="cara" src="foto.jfif" alt="Foto de perfil">            
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Juan Perrotat</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#SobreMi">Sobre mí</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#Formacion">Formación</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#Tecnologias">Tecnologías</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#Proyectos">Proyectos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#Contacto">Contacto</a>
+                </li>
+            </ul>
+            <div class="ms-auto">
+                <a class="btn btn-outline-primary" href="https://docs.google.com/document/d/1Q6aIaNEK8EzfHfsFgSd4-yYed4ZxKVtAYOsLQyVMhS8/edit?usp=sharing">Mí CV</a>
             </div>
-            <div class="caja-presentacion">
-                <div>    
-                    <h1>¡Hola!</h1>
-                    <p class="presentacion">
-                        Mí nombre es Juan, y soy desarrollador .NET Junior con formación en C# y SQL.
-                        Cuento con formación y experiencia en el desarrollo de aplicaciones de escritorio (WinForms) y web (WebForms) con persistencia en base de datos
-                        utilizando en el framework .NET y las librerías correspondientes (ADO.NET, ASP.NET). 
-                        Éste es mí portfolio y te invito a que lo veas. Ante cualquier consulta, 
-                        podés ponerte en contacto conmigo por los medios debajo indicados.
-                     
-                    </p>
+        </div>
+    </div>
+</nav>
+<div class="sobre-mi-section">
+ <div class="container">
+
+     <div class="row justify-content-center">
+         <div class="col-12 col-md-10 col-lg-8">
+
+             <div id="SobreMi" class="card shadow-sm border-0 p-4">
+
+                 <div class="row align-items-center">
+
+                     <div class="col-12 col-md-4 text-center mb-3 mb-md-0">
+                         <img src="Images/foto.jpg"
+                             class="foto-perfil rounded-circle img-fluid mx-auto mb-3"
+                             style="width: 200px; height: 200px; object-fit: cover;" />
+                     </div>
+
+
+                     <div class="col-12 col-md-8">
+                         <h2 style="text-align: center;">Sobre mí</h2>
+
+                         <p class="text-muted" style="text-align: justify;">
+                            Soy desarrollador .NET con formación en C# y SQL Server. 
+                            Tengo experiencia práctica en desarrollo de aplicaciones de escritorio (WinForms),
+                            y web (WebForms) con el framework ASP.NET con persistencia en base de datos a
+                            través de la librería ADO.NET. 
+                            A su vez, tengo conocimientos de control de versiones con Git y también 
+                            manejo herramientas como HTML, CSS, JavaScript y Bootstrap. 
+                            Todos mis proyectos fueron desarrollados con arquitectura en capas, 
+                            validaciones de datos y manejo de excepciones, 
+                            además de persistencia a base de datos con operaciones CRUD y ABM. 
+                         </p>
+                     </div>
+
+                 </div>
+             </div>
+
+         </div>
+     </div>
+    </div>
+ </div>
+
+ <div class="container mt-5" id="Tecnologias">
+
+    <h2 class="text-center mb-4">Tecnologías</h2>
+    <p class="text-center mb-4">Estas son algunas de las tecnologías sobre las que tengo conocimientos
+        y habilidades que he utilizado en mis proyectos</p>
+
+    <div class="row justify-content-center g-4">
+
+        <div class="col">
+            <div class="tech-card text-center p-3">
+                <img src="Images/csharp.png" class="tech-icon mb-2" />
+                <p class="tech-label">C#</p>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="tech-card text-center p-3">
+                <img src="Images/dotnet.png" class="tech-icon mb-2" />
+                <p class="tech-label">.NET</p>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="tech-card text-center p-3">
+                <img src="Images/sqlserver.png" class="tech-icon mb-2" />
+                <p class="tech-label">SQL Server</p>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="tech-card text-center p-3">
+                <img src="Images/html.png" class="tech-icon mb-2" />
+                <p class="tech-label">HTML</p>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="tech-card text-center p-3">
+                <img src="Images/css.png" class="tech-icon mb-2" />
+                <p class="tech-label">CSS</p>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="tech-card text-center p-3">
+                <img src="Images/js.png" class="tech-icon mb-2" />
+                <p class="tech-label">JavaScript</p>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="tech-card text-center p-3">
+                <img src="Images/bootstrap.png" class="tech-icon mb-2" />
+                <p class="tech-label">Bootstrap</p>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="tech-card text-center p-3">
+                <img src="Images/vs-code.png" class="tech-icon mb-2" />
+                <p class="tech-label">Visual Studio Code</p>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="tech-card text-center p-3">
+                <img src="Images/vs-community.png" class="tech-icon mb-2" />
+                <p class="tech-label">Visual Studio Community</p>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<div class="formacion-section" id="Formacion">
+
+    <div class="container">
+
+        <h2 class="text-center mb-4">Formación</h2>
+        <p class="text-center mb-5">
+            Cursos y capacitaciones que forman parte de mi desarrollo como programador
+        </p>
+
+        <div class="row g-4">
+
+            <!-- Curso 1 -->
+            <div class="col-12 col-md-6">
+                <div class="curso-card p-3">
+                    <h5>Fundamentos de la Programación</h5>
+                    <p class="curso-detalle">Nivel Universitario</p>
+                    <a href="https://drive.google.com/file/d/1NJY0-ziHq5cP59BBF0TJPcE_1Q3XOgke/view?usp=drive_link" target="_blank">
+                        Ver certificado
+                    </a>
                 </div>
             </div>
-        </div>
-    </section>
-    <section class="dos">
-        <h2>Sobre mí</h2>
-        <p>
-            Tengo experiencia práctica en desarrollo de aplicaciones utilizando .NET y WinForms, implementación de operaciones CRUD y ABM, validaciones de datos, manejo de excepciones y arquitectura en capas.
-            También cuento con conocimiento de control de versiones con Git y trabajo con buenas prácticas de código y arquitectura en capas. Por último, estoy profundizando mí formación en desarrollo de aplicaciones web
-            en el entorno .NET con ASP.
-        </p>        
-        <p>
-            He desarrollado proyectos propios en C# .NET y WinForms, trabajando con bases de datos SQL Server y ADO.NET, aplicando programación orientada a objetos.
-        </p>
-        <p>
-            Como dato de contexto, provengo del ámbito educativo en el cual cuento con 10 años de experiencia, 
-            lo que me aportó habilidades de organización, trabajo con objetivos y aprendizaje constante, 
-            que hoy aplico en mi desarrollo profesional dentro del área de tecnología.
-        </p>
 
-        </p>
-        <h2>Aptitudes</h2>
-        <p>
-            Estas son algunas de las tecnologías de las que tengo conocimientos
-        </p>
-        <div class="aptitudes">
-            <div class="tech-list">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/C_Sharp_Logo_2023.svg/960px-C_Sharp_Logo_2023.svg.png" class="tech" alt="C#">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Visual_Studio_Icon_2022.svg/2048px-Visual_Studio_Icon_2022.svg.png" class="tech" alt="Visual Studio"> 
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/1200px-Visual_Studio_Code_1.35_icon.svg.png" class="tech" alt=".Visual Studio Code">
+            <div class="col-12 col-md-6">
+                <div class="curso-card p-3">
+                    <h5>Introducción a HTML y CSS</h5>
+                    <a href="https://drive.google.com/file/d/12u2QsnYNJ6-tMEhSa4vv-_ss6sdQhbMt/view?usp=sharing" target="_blank">
+                        Ver certificado
+                    </a>
+                </div>
             </div>
-            <div class="tech-list">
-                <img class="tech" src="https://cdn.prod.website-files.com/5bc04a8a1aa58d50fba276b2/642283803a9a32654909d21d_dotnet-logo.svg" alt=".NET">
-                <img src="https://www.saotn.org/wp-content/uploads/2025/07/microsoft-sql-server-logo1.png" class="tech" alt="SQL">
-                <img src="https://miro.medium.com/v2/resize:fit:600/format:webp/1*oPEDLkxFxRbrzSBvDSt72g.png" class="tech" alt="ASP">
+
+            <!-- Curso 2 -->
+            <div class="col-12 col-md-6">
+                <div class="curso-card p-3">
+                    <h5>C# Nivel 1</h5>
+                    <p class="curso-detalle">Desde Cero</p>
+                    <a href="https://drive.google.com/file/d/1f71bgTdMWr-PKweOyPLmPXqtmbbEB7UN/view?usp=drive_link" target="_blank">
+                        Ver certificado
+                    </a>
+                </div>
             </div>
-            <div class="tech-list">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/1024px-HTML5_logo_and_wordmark.svg.png" class="tech" alt="HTML">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/1452px-CSS3_logo_and_wordmark.svg.png" class="tech" alt="CSS">
-                <img src="https://iconape.com/wp-content/files/ez/353342/svg/javascript-seeklogo.com.svg" class="tech" alt="JS">
+
+            <!-- Curso 3 -->
+            <div class="col-12 col-md-6">
+                <div class="curso-card p-3">
+                    <h5>C# Nivel 2</h5>
+                    <p class="curso-detalle">POO + .NET + SQL</p>
+                    <span class="badge bg-success mb-2">Proyecto aplicado</span>
+                    <div class="curso-links">
+                            <a href="https://drive.google.com/file/d/10eE748Ooyrs6MnYxXZQ4PwItIoS8U2z6/view?usp=drive_link" target="_blank">
+                                Ver certificado
+                            </a>
+                            <a href="https://github.com/JuanPerrotat/Primer-desarrollo-propio" target="_blank" class="proyecto-link">
+                                     Repositorio de proyecto para certificación
+                            </a>
+                    </div>
+                </div>
             </div>
+
+            <!-- Curso en curso -->
+            <div class="col-12 col-md-6">
+                <div class="curso-card p-3 en-curso">
+                    <h5>C# Nivel 3</h5>
+                    <p class="curso-detalle">Web ASP .NET</p>
+                    <span class="badge bg-warning text-dark">En curso</span>
+                    <div class="curso-links">
+                        <div>
+                            <a href="https://github.com/JuanPerrotat/APPGestorArticulos-ASP" target="_blank" class="proyecto-link">
+                                Ver proyecto en desarrollo
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Curso 5 -->    
+            <div class="col-12 col-md-6">
+                <div class="curso-card p-3 en-curso">
+                    <h5>C# Nivel 4</h5>
+                    <p class="curso-detalle">MVC + .NET Core + Razor</p>
+                    <span class="badge bg-warning text-dark">En curso</span>
+                </div>
+            </div>
+
         </div>
-        <h2 class="cursos">Cursos realizados</h2>
-        <ul>
-            <li>Fundamentos de la Programación [Nivel Universitario] 👉 <a href="https://drive.google.com/file/d/1NJY0-ziHq5cP59BBF0TJPcE_1Q3XOgke/view?usp=drive_link">Ver certificado</a></li>
-            <li>C# Nivel 1 [Desde Cero] 👉 <a href="https://drive.google.com/file/d/1f71bgTdMWr-PKweOyPLmPXqtmbbEB7UN/view?usp=drive_link">Ver certificado</a></li> 
-            <li>C# Nivel 2 [POO + .NET + SQL] 👉 <a href="https://drive.google.com/file/d/10eE748Ooyrs6MnYxXZQ4PwItIoS8U2z6/view?usp=drive_link">Ver certificado</a></li>
-            <li>C# Nivel 3: Web ASP .NET 👉 En curso</a></li>
-            <li>Introducción a HTML y CSS 👉 <a href="https://drive.google.com/file/d/12u2QsnYNJ6-tMEhSa4vv-_ss6sdQhbMt/view?usp=sharing">Ver certificado</a></li>
-        </ul>
-    </section>
-    <section class="tres">
+
+    </div>
+
+</div>
+
+    <!-- <section class="tres">
         <h2>Mis Proyectos</h2>
         <div class="proyectos">
             <div class="card">
@@ -115,8 +273,9 @@
                 </a>
                 </div>
         </div>
-    </section>
-    <footer>
+    </section> -->
+
+    <!-- <footer>
         <h2>Contactame</h2>
             <div class="contacto">
                 <a href="https://www.linkedin.com/in/juan-perrotat/" target="_blank">
@@ -136,29 +295,7 @@
 <div id="modalImg" class="modal">
     <span class="modal-close">&times;</span>
     <img id="modalContent">
-</div>
-<script>
-    const preview = document.querySelector(".img-preview");
-    const modal = document.getElementById("modalImg");
-    const modalImg = document.getElementById("modalContent");
-    const close = document.querySelector(".modal-close");
-
-    preview.addEventListener("click", () => {
-        modalImg.src = preview.src;
-        modal.style.display = "flex";
-    });
-
-    close.addEventListener("click", () => {
-        modal.style.display = "none";
-        modalImg.src = "";
-    });
-
-    modal.addEventListener("click", () => {
-        modal.style.display = "none";
-        modalImg.src = "";
-    });
-</script>
-
-
+</div> -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>
