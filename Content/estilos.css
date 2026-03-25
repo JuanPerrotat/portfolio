@@ -7,7 +7,10 @@ body {
 h1, h2, h3, h4, h5 {
     font-family: 'Poppins', sans-serif;
 }
-
+.navbar {
+    backdrop-filter: blur(10px);
+    background-color: rgba(248,249,250,0.9) !important;
+}
 .navbar-nav .nav-link {
     position: relative;
     transition: color 0.3s ease;
@@ -20,12 +23,22 @@ h1, h2, h3, h4, h5 {
         bottom: -4px;
         width: 0;
         height: 2px;
-        background-color: #ffffff;
+        background-color: #0d6efd;
         transition: width 0.3s ease;
     }
-
+    .navbar-nav .nav-link:hover {
+        transform: translateY(-2px);
+    }
     .navbar-nav .nav-link:hover::after {
         width: 100%;
+    }
+        .btn-outline-primary {
+        transition: all 0.3s ease;
+    }
+
+    .btn-outline-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(13,110,253,0.3);
     }
 .sobre-mi-section {
     background: #dbe0e0;
@@ -260,24 +273,29 @@ h1, h2, h3, h4, h5 {
 }
 
 .footer-social a {
-    background: #1e293b;
-    padding: 12px;
+   background: #1e293b;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
     display: flex;
+    align-items: center;
+    justify-content: center;
     transition: all 0.3s ease;
 }
 
 .footer-social img {
-    width: 24px;
-    height: 24px;
-    filter: invert(1); /* hace que todos sean blancos */
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
 }
 
 .footer-social a:hover {
     transform: translateY(-4px);
     background: #0d6efd;
 }
-
+.footer-social a:hover img {
+    transform: scale(1.1);
+}
 .footer-copy {
     font-size: 13px;
     color: #94a3b8;
