@@ -238,3 +238,47 @@ h1, h2, h3, h4, h5 {
 .proyecto-links a:hover {
     text-decoration: underline;
 }
+.footer {
+    background: #0f172a; /* oscuro moderno */
+    color: #fff;
+    padding: 35px 0 15px;
+}
+
+.footer h2 {
+    font-size: 28px;
+}
+
+.footer-text {
+    color: #cbd5e1;
+    font-size: 14px;
+}
+
+.footer-social {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+}
+
+.footer-social a {
+    background: #1e293b;
+    padding: 12px;
+    border-radius: 50%;
+    display: flex;
+    transition: all 0.3s ease;
+}
+
+.footer-social img {
+    width: 24px;
+    height: 24px;
+    filter: invert(1); /* hace que todos sean blancos */
+}
+
+.footer-social a:hover {
+    transform: translateY(-4px);
+    background: #0d6efd;
+}
+
+.footer-copy {
+    font-size: 13px;
+    color: #94a3b8;
+}
