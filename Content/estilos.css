@@ -308,3 +308,46 @@ h1, h2, h3, h4, h5 {
     font-size: 13px;
     color: #94a3b8;
 }
+.sobre-mi-card {
+    border-radius: 20px;
+    background: #ffffff;
+}
+
+.sobre-mi-titulo {
+    font-family: 'Poppins', sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.sobre-mi-subtitulo {
+    font-size: 15px;
+    color: #0d6efd;
+    font-weight: 500;
+}
+
+.sobre-mi-texto {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.sobre-mi-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.sobre-mi-tags span {
+    background: #f1f5f9;
+    color: #0d6efd;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.sobre-mi-tags span:hover {
+    background: #0d6efd;
+    color: #fff;
+}
