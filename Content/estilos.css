@@ -55,10 +55,6 @@ h1, h2, h3, h4, h5 {
     overflow: hidden;
 }
 
-    /* #SobreMi:hover {
-        transform: translateY(-6px);
-        box-shadow: 0 15px 35px rgba(0,0,0,0.8);
-    } */
     .foto-perfil {
     width: 180px;
     height: 180px;
@@ -175,7 +171,7 @@ h1, h2, h3, h4, h5 {
 }
 .curso-meta {
     font-size: 12px;
-    color: #999;
+    color: black;
     margin-bottom: 4px;
 }
 .curso-detalle {
@@ -350,4 +346,32 @@ h1, h2, h3, h4, h5 {
 .sobre-mi-tags span:hover {
     background: #0d6efd;
     color: #fff;
+}
+.carrera-card {
+    border: 2px solid #0d6efd;
+    background: linear-gradient(135deg, #f8fbff, #eef4ff);
+    text-align: center;
+    transform: scale(1.02);
+}
+
+.carrera-card h5 {
+    font-size: 26px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.carrera-card::before {
+    display: inline-block;
+    background: #0d6efd;
+    color: #fff;
+    font-size: 18px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+.carrera-card .curso-meta {
+    font-size: 16px;
+}
+.carrera-card .curso-detalle {
+    font-size: 14px;
 }
