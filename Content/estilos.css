@@ -347,6 +347,9 @@ h1, h2, h3, h4, h5 {
     background: #0d6efd;
     color: #fff;
 }
+.sobre-mi-texto{
+    text-align: justify;
+}
 .carrera-card {
     border: 2px solid #0d6efd;
     background: linear-gradient(135deg, #f8fbff, #eef4ff);
