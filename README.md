@@ -8,4 +8,4 @@ Proyecto enfocado en presentar información personal, tecnologías y proyectos d
 - CSS3
 
 ## Preview
-Podés verlo acá: [GitHub Pages](https://juanperrotat.github.io/portfolio/)
+Podés verlo acá: [Link al portfolio](https://juanperrotat.github.io/portfolio/)
