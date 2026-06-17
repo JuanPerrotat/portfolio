@@ -1,456 +1,504 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juan Perrotat · Desarrollador Junior .NET</title>
+    <meta name="description" content="Portfolio de Juan Perrotat, desarrollador junior en C#, .NET y JavaScript. Proyectos reales, certificaciones y experiencia freelance en equipo.">
+    <meta property="og:title" content="Juan Perrotat · Desarrollador Junior .NET">
+    <meta property="og:description" content="Bases sólidas en C# y .NET, experiencia real en equipo freelance sobre un stack JavaScript moderno.">
+    <meta property="og:type" content="website">
     <link rel="icon" href="Images/portfolio.png">
-    <title>Juan Perrotat | Portfolio</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Public+Sans:wght@400..700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="Content/estilos.css">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">Juan Perrotat</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+
+<a class="skip-link" href="#main">Saltar al contenido principal</a>
+
+<header class="site-nav">
+    <div class="nav-inner">
+        <a class="nav-brand" href="#top">Juan Perrotat</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Abrir menú de navegación">
+            <span></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="#SobreMi">Sobre mí</a>
+        <nav id="nav-menu" class="nav-menu" data-open="false">
+            <a href="#sobre-mi" data-nav>Sobre mí</a>
+            <a href="#stack" data-nav>Stack</a>
+            <a href="#experiencia" data-nav>Experiencia</a>
+            <a href="#formacion" data-nav>Formación</a>
+            <a href="#proyectos" data-nav>Proyectos</a>
+            <a href="#contacto" data-nav>Contacto</a>
+            <a class="nav-cv ext" href="https://docs.google.com/document/d/12Ybr5u_JETdeLbcTzF8mkNWQzVXh9FCA/edit?usp=sharing&ouid=101887510425896662125&rtpof=true&sd=true" target="_blank" rel="noopener">Ver CV</a>
+        </nav>
+    </div>
+</header>
+
+<main id="main">
+
+    <!-- HERO -->
+    <section class="hero wrap" id="top">
+        <h1 class="hero-title" data-reveal>Juan Perrotat</h1>
+        <p class="hero-role" data-reveal>Desarrollador Junior — .NET &amp; JavaScript</p>
+        <p class="hero-thesis" data-reveal>
+            Construyo software con bases sólidas en C# y .NET, y sumo experiencia real como desarrollador Jr.
+            en un stack JavaScript moderno junto a un equipo en producción de aplicaciones web para clientes.
+        </p>
+        <div class="hero-actions" data-reveal>
+            <a class="btn btn-primary" href="#experiencia">Ver experiencia actual</a>
+            <a class="btn btn-ghost" href="mailto:juanperrotat@gmail.com">Contactame</a>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="sobre-mi">
+        <div class="wrap">
+            <div class="about-grid">
+                <img class="about-photo" src="Images/foto.jpg" alt="Foto de Juan Perrotat" data-reveal>
+                <div class="about-copy">
+                    <div class="section-head">
+                        <h2>Sobre mí</h2>
+                        <p class="lede">
+                            Antes de escribir código pasé diez años analizando datos, personas y sistemas
+                            en un aula y en un centro de investigación. Esa base sostiene cómo trabajo hoy.
+                        </p>
+                    </div>
+                    <div class="prose">
+                        <p>
+                            Soy desarrollador junior con formación en C# y .NET, con experiencia práctica en
+                            aplicaciones de escritorio (WinForms) y web (WebForms y MVC ASP.NET), todas construidas
+                            con arquitectura en capas, validaciones, manejo de excepciones y persistencia en SQL
+                            Server mediante operaciones CRUD y ABM.
+                        </p>
+                        <p>
+                            Vengo de una formación docente en Historia (UBA) y trabajé como investigador en ciencias
+                            sociales en el CEICS. Diez años analizando información, redactando documentación técnica
+                            y resolviendo problemas con método: esa disciplina analítica es la base de cómo encaro
+                            cada proyecto y desarrollo.
+                        </p>
+                        <p>
+                            Actualmente curso la Tecnicatura Universitaria en Programación (UTN, Facultad Regional
+                            General Pacheco) y sigo sumando certificaciones en C# y .NET, mientras incorporo
+                            Next.js, React, Node.js, PostgreSQL, Docker y desarrollo asistido por IA en mi rol
+                            freelance.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TECH STACK -->
+    <section class="section" id="stack">
+        <div class="wrap">
+            <div class="section-head">
+                <h2>Stack técnico</h2>
+            </div>
+
+            <div class="stack-group stack-group--proven" data-reveal-group>
+                <div class="stack-group-head">
+                    <h3>Con experiencia</h3>
+                </div>
+                <div class="tech-grid">
+                    <div class="tech-item" style="--i:0" data-reveal>
+                        <span class="tech-icon--text" aria-hidden="true">C#</span>
+                        <span class="tech-label">C#</span>
+                    </div>
+                    <div class="tech-item" style="--i:1" data-reveal>
+                        <span class="tech-icon" style="--icon-url:url('https://cdn.jsdelivr.net/npm/simple-icons@16.23.0/icons/dotnet.svg')" aria-hidden="true"></span>
+                        <span class="tech-label">.NET</span>
+                    </div>
+                    <div class="tech-item" style="--i:2" data-reveal>
+                        <span class="tech-icon--text" aria-hidden="true">ASP</span>
+                        <span class="tech-label">ASP.NET / MVC</span>
+                    </div>
+                    <div class="tech-item" style="--i:3" data-reveal>
+                        <span class="tech-icon--text" aria-hidden="true">SQL</span>
+                        <span class="tech-label">SQL Server</span>
+                    </div>
+                    <div class="tech-item" style="--i:4" data-reveal>
+                        <span class="tech-icon" style="--icon-url:url('https://cdn.jsdelivr.net/npm/simple-icons@16.23.0/icons/html5.svg')" aria-hidden="true"></span>
+                        <span class="tech-label">HTML</span>
+                    </div>
+                    <div class="tech-item" style="--i:5" data-reveal>
+                        <span class="tech-icon" style="--icon-url:url('https://cdn.jsdelivr.net/npm/simple-icons@16.23.0/icons/css.svg')" aria-hidden="true"></span>
+                        <span class="tech-label">CSS</span>
+                    </div>
+                    <div class="tech-item" style="--i:6" data-reveal>
+                        <span class="tech-icon" style="--icon-url:url('https://cdn.jsdelivr.net/npm/simple-icons@16.23.0/icons/javascript.svg')" aria-hidden="true"></span>
+                        <span class="tech-label">JavaScript</span>
+                    </div>
+                    <div class="tech-item" style="--i:7" data-reveal>
+                        <span class="tech-icon" style="--icon-url:url('https://cdn.jsdelivr.net/npm/simple-icons@16.23.0/icons/bootstrap.svg')" aria-hidden="true"></span>
+                        <span class="tech-label">Bootstrap</span>
+                    </div>
+                    <div class="tech-item" style="--i:8" data-reveal>
+                        <span class="tech-icon" style="--icon-url:url('https://cdn.jsdelivr.net/npm/simple-icons@16.23.0/icons/git.svg')" aria-hidden="true"></span>
+                        <span class="tech-label">Git</span>
+                    </div>
+                    <div class="tech-item" style="--i:9" data-reveal>
+                        <span class="tech-icon" style="--icon-url:url('https://cdn.jsdelivr.net/npm/simple-icons@16.23.0/icons/github.svg')" aria-hidden="true"></span>
+                        <span class="tech-label">GitHub</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stack-group stack-group--training" data-reveal-group>
+                <div class="stack-group-head">
+                    <h3>En aprendizaje</h3>
+                </div>
+                <div class="tech-grid">
+                    <div class="tech-item" style="--i:0" data-reveal>
+                        <span class="tech-icon" style="--icon-url:url('https://cdn.jsdelivr.net/npm/simple-icons@16.23.0/icons/nextdotjs.svg')" aria-hidden="true"></span>
+                        <span class="tech-label">Next.js</span>
+                    </div>
+                    <div class="tech-item" style="--i:1" data-reveal>
+                        <span class="tech-icon" style="--icon-url:url('https://cdn.jsdelivr.net/npm/simple-icons@16.23.0/icons/react.svg')" aria-hidden="true"></span>
+                        <span class="tech-label">React</span>
+                    </div>
+                    <div class="tech-item" style="--i:2" data-reveal>
+                        <span class="tech-icon" style="--icon-url:url('https://cdn.jsdelivr.net/npm/simple-icons@16.23.0/icons/nodedotjs.svg')" aria-hidden="true"></span>
+                        <span class="tech-label">Node.js</span>
+                    </div>
+                    <div class="tech-item" style="--i:3" data-reveal>
+                        <span class="tech-icon" style="--icon-url:url('https://cdn.jsdelivr.net/npm/simple-icons@16.23.0/icons/postgresql.svg')" aria-hidden="true"></span>
+                        <span class="tech-label">PostgreSQL</span>
+                    </div>
+                    <div class="tech-item" style="--i:4" data-reveal>
+                        <span class="tech-icon" style="--icon-url:url('https://cdn.jsdelivr.net/npm/simple-icons@16.23.0/icons/supabase.svg')" aria-hidden="true"></span>
+                        <span class="tech-label">Supabase</span>
+                    </div>
+                    
+                    <div class="tech-item" style="--i:5" data-reveal>
+                        <span class="tech-icon" style="--icon-url:url('https://cdn.jsdelivr.net/npm/simple-icons@16.23.0/icons/docker.svg')" aria-hidden="true"></span>
+                        <span class="tech-label">Docker</span>
+                    </div>
+                    <div class="tech-item" style="--i:6" data-reveal>
+                        <span class="tech-icon" style="--icon-url:url('https://cdn.jsdelivr.net/npm/simple-icons@16.23.0/icons/claudecode.svg')" aria-hidden="true"></span>
+                        <span class="tech-label">Claude Code</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- EXPERIENCE -->
+    <section class="section" id="experiencia">
+        <div class="wrap">
+            <div class="section-head">
+                <h2>Experiencia</h2>
+                <p class="lede">El trabajo actual al frente; diez años de disciplina analítica detrás.</p>
+            </div>
+
+            <article class="exhibit exhibit-featured" data-reveal>
+                <div class="exhibit-head">
+                    <span class="exhibit-date">Jun. 2026 — Actualidad</span>
+                </div>
+                <div>
+                    <h3>Desarrollador Junior Freelance</h3>
+                    <p class="exhibit-sub">Mentoreado por un líder técnico senior con más de 10 años de experiencia · proyectos para clientes reales</p>
+                </div>
+                <p>
+                    Formo parte de un equipo de programadores que toma proyectos para clientes reales de forma
+                    autónoma, aplicando lo aprendido en C# y .NET a un stack moderno de JavaScript ya en producción.
+                </p>
+                <ul class="exhibit-points">
+                    <li>Participación en el desarrollo de un sistema de gestión para un cliente real: modelado de base de datos, definición de funcionalidades y resolución de tareas del proyecto.</li>
+                    <li>Desarrollo de funcionalidades en Next.js y React, con conexión a PostgreSQL mediante Supabase usando la librería Prisma.</li>
+                    <li>Trabajo colaborativo con control de versiones en Git y GitHub junto al resto del equipo.</li>
+                </ul>
+                <div class="exhibit-stack">
+                    <span class="tag tag--training">Next.js</span>
+                    <span class="tag tag--training">Node.js</span>
+                    <span class="tag tag--training">PostgreSQL</span>
+                    <span class="tag tag--training">Supabase</span>
+                    <span class="tag tag--training">Docker</span>
+                    <span class="tag tag--training">Git</span>
+                    <span class="tag tag--training">GitHub</span>
+                    <span class="tag tag--training">Visual Studio Code</span>
+                </div>
+            </article>
+
+            <ul class="role-list" data-reveal-group>
+                <li class="role-row" data-reveal>
+                    <span class="role-date">Mar. 2015 — Actualidad</span>
+                    <div>
+                        <h3>Docente y soporte IT</h3>
+                        <p class="role-org">Colegio Xul Solar</p>
+                        <p class="role-desc">
+                            Docente de nivel secundario en Historia, Construcción de Ciudadanía, Trabajo y Ciudadanía,
+                            Ciencias Sociales y Geografía. Soporte y análisis IT: seguimiento, diagnóstico y reparación
+                            de computadoras, proyectores, televisores y redes. Tareas administrativas y de preceptoría.
+                        </p>
+                    </div>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#Tecnologias">Tecnologías</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#Formacion">Formación</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#Proyectos">Proyectos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#Contacto">Contacto</a>
+                <li class="role-row" data-reveal>
+                    <span class="role-date">Mar. 2016 — Sep. 2018</span>
+                    <div>
+                        <h3>Investigador</h3>
+                        <p class="role-org">Centro de Estudios e Investigaciones en Ciencias Sociales (CEICS)</p>
+                        <p class="role-desc">
+                            Investigación cualitativa y cuantitativa sobre temáticas históricas, políticas, demográficas
+                            y económicas. Manejo y producción de documentación técnica. Redacción y corrección de
+                            textos académicos.
+                        </p>
+                    </div>
                 </li>
             </ul>
-            <div class="ms-auto">
-                <a class="btn btn-outline-primary" href="https://docs.google.com/document/d/1Q6aIaNEK8EzfHfsFgSd4-yYed4ZxKVtAYOsLQyVMhS8/edit?usp=sharing">Mí CV</a>
-            </div>
         </div>
-    </div>
-</nav>
+    </section>
 
-<div class="sobre-mi-section" id="SobreMi">
-    <div class="container">
+    <!-- EDUCATION & CERTIFICATIONS -->
+    <section class="section" id="formacion">
+        <div class="wrap">
+            <div class="section-head">
+                <h2>Formación</h2>
+                <p class="lede">Formación académica y certificaciones.</p>
+            </div>
 
-        <div class="row justify-content-center">
-            <div class="col-12 col-lg-9">
+            <div class="edu-featured" data-reveal>
+                <span class="stamp stamp--outline">En curso</span>
+                <h3>Tecnicatura Universitaria en Programación</h3>
+                <p class="edu-org">UTN — Facultad Regional General Pacheco (FRGP)</p>
+                <span class="edu-date">Mayo 2026 — Actualidad</span>
+            </div>
 
-                <div class="card sobre-mi-card shadow-sm border-0 p-4 p-md-5">
-
-                    <div class="row align-items-center">
-
-                        <!-- FOTO -->
-                        <div class="col-12 col-md-4 text-center mb-4 mb-md-0">
-                            <img src="Images/foto.jpg"
-                                class="foto-perfil rounded-circle img-fluid" />
-                        </div>
-
-                        <!-- TEXTO -->
-                        <div class="col-12 col-md-8">
-
-                            <h2 class="sobre-mi-titulo mb-2">
-                                Hola, soy Juan 👋
-                            </h2>
-
-                            <p class="sobre-mi-subtitulo mb-3">
-                                Desarrollador .NET
-                            </p>
-
-                            <p class="sobre-mi-texto">
-                                Trabajo con C#, SQL Server y ASP.NET (WebForms y WinForms), 
-                                desarrollando aplicaciones completas con persistencia a Base de Datos, arquitectura en capas, 
-                                validaciones sólidas y manejo de datos y excepciones eficiente.
-                            </p>
-
-                             <p class="sobre-mi-texto">
-                                Mí stack principal es .NET, aunque también manejo HTML, CSS, JavaScript y Bootstrap.
-                                Además, manejo control de versiones con Git.
-                            </p>
-
-                            <p class="sobre-mi-texto">
-                                Vengo del mundo de la educación y la Historia, 
-                                lo que me dio una forma de pensar analítica y autodidacta.
-                                Tengo allí más de diez años de experiencia laboral, lo que me ha permitido adquirir
-                                habilidades blandas esenciales y aplicables para cualquier ámbito profesional.
-                                
-                            </p>
-
-                        </div>
+            <ul class="cert-list" data-reveal-group>
+                <li class="cert-row" style="--i:0" data-reveal>
+                    <div class="cert-main">
+                        <span class="cert-title">C# Nivel 4 — Maxi Programa</span>
+                        <span class="cert-meta">Patrón MVC en .NET 10, Razor Pages, APIs, Entity Framework, Identity y desarrollo asistido por IA</span>
                     </div>
-
-                </div>
-
-            </div>
-        </div>
-    </div>
-</div>
-
- <div class="container mt-5" ID="Tecnologias">
-
-    <h2 class="text-center mb-4">Tecnologías</h2>
-    <p class="text-center mb-4">Estas son algunas de las tecnologías sobre las que tengo conocimientos
-        y habilidades que he utilizado en mis proyectos</p>
-
-    <div class="row justify-content-center g-4">
-
-        <div class="col">
-            <div class="tech-card text-center p-3">
-                <img src="Images/csharp.png" class="tech-icon mb-2" />
-                <p class="tech-label">C#</p>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="tech-card text-center p-3">
-                <img src="Images/dotnet.png" class="tech-icon mb-2" />
-                <p class="tech-label">.NET</p>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="tech-card text-center p-3">
-                <img src="Images/sqlserver.png" class="tech-icon mb-2" />
-                <p class="tech-label">SQL Server</p>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="tech-card text-center p-3">
-                <img src="Images/html.png" class="tech-icon mb-2" />
-                <p class="tech-label">HTML</p>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="tech-card text-center p-3">
-                <img src="Images/css.png" class="tech-icon mb-2" />
-                <p class="tech-label">CSS</p>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="tech-card text-center p-3">
-                <img src="Images/js.png" class="tech-icon mb-2" />
-                <p class="tech-label">JavaScript</p>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="tech-card text-center p-3">
-                <img src="Images/bootstrap.png" class="tech-icon mb-2" />
-                <p class="tech-label">Bootstrap</p>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="tech-card text-center p-3">
-                <img src="Images/vs-code.png" class="tech-icon mb-2" />
-                <p class="tech-label">Visual Studio Code</p>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="tech-card text-center p-3">
-                <img src="Images/vs-community.png" class="tech-icon mb-2" />
-                <p class="tech-label">Visual Studio Community</p>
-            </div>
-        </div>
-
-    </div>
-
-</div>
-<div class="formacion-section" id="Formacion">
-
-    <div class="container">
-
-        <h2 class="text-center mb-4">Formación profesional</h2>
-
-        <div class="row g-4">
-
-            <div class="col-12 mb-3">
-                <div class="curso-card carrera-card p-4">
-                    <h5>Tecnicatura Universitaria en Programación</h5>
-                    <p class="curso-meta">Universidad Tecnológica Nacional Facultad Regional General Pacheco</p>
-                    <p class="curso-detalle">Mayo 2026 - Diciembre 2028</p>
-                </div>
-            </div>
-
-            <!-- Curso 1 -->
-            <div class="col-12 col-md-6">
-                <div class="curso-card p-3">
-                    <h5>Fundamentos de la Programación</h5>
-                    <p class="curso-meta">Maxi Programa - Septiembre 2025</p>
-                    <p class="curso-detalle">Nivel Universitario</p>
-                    <a href="https://drive.google.com/file/d/1NJY0-ziHq5cP59BBF0TJPcE_1Q3XOgke/view?usp=drive_link" target="_blank">
-                        Ver certificado
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-12 col-md-6">
-                <div class="curso-card p-3">
-                    <h5>Introducción a HTML y CSS</h5>
-                    <p class="curso-meta">Todo Code Academy - Enero 2026</p>
-                    <p class="curso-detalle">Nivel Universitario</p>
-                    <a href="https://drive.google.com/file/d/12u2QsnYNJ6-tMEhSa4vv-_ss6sdQhbMt/view?usp=sharing" target="_blank">
-                        Ver certificado
-                    </a>
-                </div>
-            </div>
-
-            <!-- Curso 2 -->
-            <div class="col-12 col-md-6">
-                <div class="curso-card p-3">
-                    <h5>C# Nivel 1</h5>
-                    <p class="curso-meta">Maxi Programa - Noviembre 2025</p>
-                    <p class="curso-detalle">C# desde Cero - CLI</p>
-                    <div class="curso-links">
-                            <a href="https://drive.google.com/file/d/1n-56nq09cOzC8YDevRFp8xCLZvYqmM1o/view?usp=sharing" target="_blank">
-                                Ver certificado
-                            </a>
-                            <a href="https://github.com/JuanPerrotat/PracticasNivel1" target="_blank" class="proyecto-link">
-                                     Repositorio de prácticas
-                            </a>
+                    <span class="cert-date">Mar. 2026 — Actualidad</span>
+                    <span class="tag tag--training">En curso</span>
+                </li>
+                <li class="cert-row" style="--i:1" data-reveal>
+                    <div class="cert-main">
+                        <span class="cert-title">C# Nivel 3 — Maxi Programa</span>
+                        <span class="cert-meta">ASP.NET WebForms, Bootstrap, HTML, CSS y JavaScript · arquitectura en capas · ABM y CRUD contra SQL Server</span>
                     </div>
-                </div>
-            </div>
-
-            <!-- Curso 3 -->
-            <div class="col-12 col-md-6">
-                <div class="curso-card p-3">
-                    <h5>C# Nivel 2</h5>
-                    <p class="curso-meta">Maxi Programa - Diciembre 2025</p>
-                    <p class="curso-detalle">POO + .NET + SQL</p>
-                    <div class="curso-links">
-                            <a href="https://drive.google.com/file/d/10eE748Ooyrs6MnYxXZQ4PwItIoS8U2z6/view?usp=drive_link" target="_blank">
-                                Ver certificado
-                            </a>
-                            <a href="https://github.com/JuanPerrotat/Primer-desarrollo-propio" target="_blank" class="proyecto-link">
-                                     Repositorio de proyecto para certificación
-                            </a>
+                    <span class="cert-date">Dic. 2025 — Feb. 2026</span>
+                    <span class="verified">
+                        <a class="link ext" href="https://drive.google.com/file/d/1zmBFD1EGBsXaLbHuLVylGXlzDsP7u4ZT/view?usp=drive_link" target="_blank" rel="noopener">Certificado</a>
+                        ·
+                        <a class="link ext" href="https://github.com/JuanPerrotat/APPGestorArticulos-ASP" target="_blank" rel="noopener">Repositorio</a>
+                    </span>
+                </li>
+                <li class="cert-row" style="--i:2" data-reveal>
+                    <div class="cert-main">
+                        <span class="cert-title">C# Nivel 2 — Maxi Programa</span>
+                        <span class="cert-meta">ADO.NET, Git y GitHub, CRUD y ABM contra SQL Server, WinForms .NET</span>
                     </div>
-                </div>
-            </div>
-
-            <!-- Curso 4 -->
-            <div class="col-12 col-md-6">
-                <div class="curso-card p-3">
-                    <h5>C# Nivel 3</h5>
-                    <p class="curso-meta">Maxi Programa - Abril 2026</p>
-                    <p class="curso-detalle">Web ASP .NET</p>
-                    <div class="curso-links">
-                             <a href="https://drive.google.com/file/d/1zmBFD1EGBsXaLbHuLVylGXlzDsP7u4ZT/view?usp=sharing" target="_blank">
-                                Ver certificado
-                            </a>
-                            <a href="https://github.com/JuanPerrotat/APPGestorArticulos-ASP" target="_blank" class="proyecto-link">
-                                Repositorio de proyecto para certificación
-                            </a>
+                    <span class="cert-date">Sep. 2025 — Nov. 2025</span>
+                    <span class="verified">
+                        <a class="link ext" href="https://drive.google.com/file/d/10eE748Ooyrs6MnYxXZQ4PwItIoS8U2z6/view?usp=sharing" target="_blank" rel="noopener">Certificado</a>
+                        ·
+                        <a class="link ext" href="https://github.com/JuanPerrotat/Primer-desarrollo-propio" target="_blank" rel="noopener">Repositorio</a>
+                    </span>
+                </li>
+                <li class="cert-row" style="--i:3" data-reveal>
+                    <div class="cert-main">
+                        <span class="cert-title">C# Nivel 1 — Maxi Programa</span>
+                        <span class="cert-meta">CLI y aplicaciones de consola, programación estructurada y lógica repetitiva</span>
                     </div>
-                </div>
-            </div>
+                    <span class="cert-date">Jul. 2025 — Sep. 2025</span>
+                    <span class="verified">
+                        <a class="link ext" href="https://drive.google.com/file/d/1n-56nq09cOzC8YDevRFp8xCLZvYqmM1o/view?usp=sharing" target="_blank" rel="noopener">Certificado</a>
+                        ·
+                        <a class="link ext" href="https://github.com/JuanPerrotat/PracticasNivel1" target="_blank" rel="noopener">Repositorio</a>
+                    </span>
+                </li>
+                <li class="cert-row" style="--i:4" data-reveal>
+                    <div class="cert-main">
+                        <span class="cert-title">Fundamentos de la Programación — Maxi Programa</span>
+                        <span class="cert-meta">Algoritmos, fundamentos y lógica de programación, diagramas de flujo</span>
+                    </div>
+                    <span class="cert-date">Jul. 2025 — Sep. 2025</span>
+                    <span class="verified">
+                        <a class="link ext" href="https://drive.google.com/file/d/1HnGMb_yLyMW7iv7Id_Q6bY281HX7JoDS/view?usp=sharing" target="_blank" rel="noopener">Certificado</a>
+                    </span>
+                </li>
+                <li class="cert-row" style="--i:5" data-reveal>
+                    <div class="cert-main">
+                        <span class="cert-title">HTML y CSS desde cero — TodoCode Academy</span>
+                        <span class="cert-meta">Introducción a HTML y CSS, elementos, selectores y buenas prácticas del desarrollo web</span>
+                    </div>
+                    <span class="cert-date">Enero 2026</span>
+                    <span class="verified">
+                        <a class="link ext" href="https://todocodeacademy.com/certificate/certificado-html-y-css-tz7/" target="_blank" rel="noopener">Certificado</a>
+                    </span>
+                </li>
+            </ul>
 
-            <!-- Curso 5 -->    
-            <div class="col-12 col-md-6">
-                <div class="curso-card p-3 en-curso">
-                    <h5>C# Nivel 4</h5>
-                    <p class="curso-meta">Maxi Programa - Febrero 2026</p>
-                    <p class="curso-detalle">MVC + .NET Core + Razor</p>
-                    <span class="badge bg-warning text-dark">En curso</span>
-                </div>
+            <div class="edu-origin" data-reveal>
+                <p>
+                    Antes de la programación: Profesorado en Enseñanza Media y Superior en Historia
+                    — Universidad de Buenos Aires (UBA), marzo 2015 – agosto 2024.
+                </p>
             </div>
-
         </div>
+    </section>
 
-    </div>
+    <!-- PROJECTS -->
+    <section class="section" id="proyectos">
+        <div class="wrap">
+            <div class="section-head">
+                <h2>Proyectos</h2>
+            </div>
+            <div class="project-grid">
 
-</div>
-
-    
-<div class="proyectos-section" ID="Proyectos">
-
-    <div class="container">
-
-        <h2 class="text-center mb-4">Proyectos</h2>
-        <p class="text-center mb-5">
-            Algunos de los desarrollos que realicé
-        </p>
-
-        <div class="row g-4">
-            
-            <!-- 1. ASP Gestión -->
-            <div class="col-12 col-md-6">
-                <div class="proyecto-card">
-                    <img src="Images/gestor-asp.png" class="img-fluid proyecto-img" />
-
-                    <div class="p-3">
-                        <h5>Stocker | Aplicación Web ASP</h5>
-                        <p class="proyecto-desc">
-                           Aplicación web <b>activa y en funcionamiento </b> desarrollada en ASP.NET WebForms con C#, orientada a la gestión 
-                           de artículos mediante operaciones CRUD. Implementa arquitectura en capas, 
-                           conexión a base de datos SQL, validaciones, manejo de errores, 
-                           sistema de login y envío de correos desde formulario de contacto.
-                           Subido con el método de hosting.
-
+                <article class="project-card" data-reveal>
+                    <div class="project-img-wrap">
+                        <img src="Images/gestor-asp.png" alt="Captura de Stocker, aplicación web de gestión de artículos" loading="lazy">
+                    </div>
+                    <div class="project-body">
+                        <h3>Stocker — Aplicación Web ASP.NET</h3>
+                        <p class="project-desc">
+                            Activa en producción. Gestión de artículos con CRUD y ABM completos en ASP.NET
+                            WebForms: arquitectura en capas, validaciones, conexión a SQL Server, login y envío
+                            de correo con respuesta automáticadesde el formulario de contacto.
                         </p>
-
-                        <span class="badge bg-success">C#</span>
-                        <span class="badge bg-success">ASP.NET</span>
-                        <span class="badge bg-success">SQL</span>
-
-                        <div class="proyecto-links mt-2">
-                           <a href="http://stocker.somee.com/">Link a la web</a>
-                       </div>
-                        <div class="proyecto-links mt-2">
-                            <a href="https://github.com/JuanPerrotat/APPGestorArticulos-ASP">Repositorio</a>
+                        <div class="project-tags">
+                            <span class="tag tag--proven">C#</span>
+                            <span class="tag tag--proven">ASP.NET</span>
+                            <span class="tag tag--proven">SQL Server</span>
+                        </div>
+                        <div class="project-links">
+                            <a class="ext" href="http://stocker.somee.com/" target="_blank" rel="noopener">Ver sitio</a>
+                            <a class="ext" href="https://github.com/JuanPerrotat/APPGestorArticulos-ASP" target="_blank" rel="noopener">Repositorio</a>
                         </div>
                     </div>
-                </div>
-            </div>
+                </article>
 
-            <!-- 2. Portfolio -->
-            <div class="col-12 col-md-6">
-                <div class="proyecto-card">
-                    <img src="Images/ejemplo-portfolio.png" class="img-fluid proyecto-img" />
-
-                    <div class="p-3">
-                        <h5>Portfolio Web</h5>
-                        <p class="proyecto-desc">
-                            Sitio personal desarrollado en HTML, CSS y Bootstrap para mostrar mis proyectos y habilidades.
+                <article class="project-card" data-reveal>
+                    <div class="project-img-wrap">
+                        <img src="Images/winforms-gestor.jpg" alt="Captura del gestor de artículos de escritorio en WinForms" loading="lazy">
+                    </div>
+                    <div class="project-body">
+                        <h3>Gestor de Artículos (WinForms)</h3>
+                        <p class="project-desc">
+                            Aplicación de escritorio en C# .NET con arquitectura en capas. Operaciones ABM y CRUD
+                            contra SQL Server, manejo de excepciones y control de errores.
                         </p>
-
-                        <span class="badge bg-primary">HTML</span>
-                        <span class="badge bg-primary">CSS</span>
-                        <span class="badge bg-primary">Bootstrap</span>
-
-                        <div class="proyecto-links mt-2">
-                            <a href="https://github.com/JuanPerrotat/portfolio">Repositorio</a>
+                        <div class="project-tags">
+                            <span class="tag tag--proven">C#</span>
+                            <span class="tag tag--proven">WinForms</span>
+                            <span class="tag tag--proven">SQL Server</span>
+                        </div>
+                        <div class="project-links">
+                            <a class="ext" href="https://github.com/JuanPerrotat/Primer-desarrollo-propio" target="_blank" rel="noopener">Repositorio</a>
                         </div>
                     </div>
-                </div>
-            </div>
+                </article>
 
-
-            <!-- 3. WinForms Gestión -->
-            <div class="col-12 col-md-6">
-                <div class="proyecto-card">
-                    <img src="Images/winforms-gestor.jpg" class="img-fluid proyecto-img" />
-
-                    <div class="p-3">
-                        <h5>Gestor de Artículos (WinForms)</h5>
-                        <p class="proyecto-desc">
-                            Aplicación de escritorio con arquitectura en capas, CRUD completo y conexión a base de datos.
+                <article class="project-card" data-reveal>
+                    <div class="project-img-wrap">
+                        <img src="Images/PokedexWeb.png" alt="Captura de la aplicación web de Pokémon" loading="lazy">
+                    </div>
+                    <div class="project-body">
+                        <h3>App Web Pokémon (WebForms)</h3>
+                        <p class="project-desc">
+                            Consumo y visualización de datos de Pokémon en ASP.NET WebForms. Arquitectura en
+                            capas, validaciones y diseño responsive con Bootstrap.
                         </p>
-
-                        <span class="badge bg-secondary">C#</span>
-                        <span class="badge bg-secondary">WinForms</span>
-                        <span class="badge bg-secondary">SQL Server</span>
-
-                        <div class="proyecto-links mt-2">
-                            <a href="https://github.com/JuanPerrotat/Primer-desarrollo-propio" target="_blank">
-                                Repositorio
-                            </a>
+                        <div class="project-tags">
+                            <span class="tag tag--proven">C#</span>
+                            <span class="tag tag--proven">ASP.NET</span>
+                        </div>
+                        <div class="project-links">
+                            <a class="ext" href="https://github.com/JuanPerrotat/Aplicacion-Web" target="_blank" rel="noopener">Repositorio</a>
                         </div>
                     </div>
-                </div>
-            </div>
+                </article>
 
-            <!-- 4. WebForms Pokemon -->
-            <div class="col-12 col-md-6">
-                <div class="proyecto-card">
-                    <img src="Images/PokedexWeb.png" class="img-fluid proyecto-img" />
-
-                    <div class="p-3">
-                        <h5>App Web Pokémon (WebForms)</h5>
-                        <p class="proyecto-desc">
-                            Aplicación web con consumo de datos y visualización de Pokémon, desarrollada en ASP.NET WebForms.
-                            Arquitectura en capas, validaciones y diseño responsive con Bootstrap.
+                <article class="project-card" data-reveal>
+                    <div class="project-img-wrap">
+                        <img src="Images/WinformsPokedex.png" alt="Captura de la aplicación de escritorio de Pokémon" loading="lazy">
+                    </div>
+                    <div class="project-body">
+                        <h3>App de Escritorio Pokémon (WinForms)</h3>
+                        <p class="project-desc">
+                            Aplicación de escritorio en WinForms para gestión y visualización de datos de Pokémon.
                         </p>
-
-                        <span class="badge bg-warning text-dark">ASP.NET</span>
-                        <span class="badge bg-warning text-dark">C#</span>
-
-                        <div class="proyecto-links mt-2">
-                            <a href="https://github.com/JuanPerrotat/Aplicacion-Web">Repositorio</a>
+                        <div class="project-tags">
+                            <span class="tag tag--proven">C#</span>
+                            <span class="tag tag--proven">WinForms</span>
+                        </div>
+                        <div class="project-links">
+                            <a class="ext" href="https://github.com/JuanPerrotat/App-Pokemon" target="_blank" rel="noopener">Repositorio</a>
                         </div>
                     </div>
-                </div>
-            </div>
+                </article>
 
-            <!-- 5. WinForms Pokemon -->
-            <div class="col-12 col-md-6">
-                <div class="proyecto-card">
-                    <img src="Images/WinformsPokedex.png" class="img-fluid proyecto-img" />
-
-                    <div class="p-3">
-                        <h5>App Escritorio Pokémon</h5>
-                        <p class="proyecto-desc">
-                            Aplicación de escritorio en WinForms para gestión y visualización de Pokémon.
+                <article class="project-card" data-reveal>
+                    <div class="project-img-wrap">
+                        <img src="Images/ejemplo-portfolio.png" alt="Captura de este portfolio" loading="lazy">
+                    </div>
+                    <div class="project-body">
+                        <h3>Este Portfolio</h3>
+                        <p class="project-desc">
+                            Esta misma landing page: HTML, CSS y JavaScript sin frameworks ni build step,
+                            pensada para mostrar evidencia real de mi trabajo.
                         </p>
-
-                        <span class="badge bg-dark">C#</span>
-                        <span class="badge bg-dark">WinForms</span>
-
-                        <div class="proyecto-links mt-2">
-                            <a href="https://github.com/JuanPerrotat/App-Pokemon">Repositorio</a>
+                        <div class="project-tags">
+                            <span class="tag tag--proven">HTML</span>
+                            <span class="tag tag--proven">CSS</span>
+                            <span class="tag tag--proven">JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a class="ext" href="https://github.com/JuanPerrotat/portfolio" target="_blank" rel="noopener">Repositorio</a>
                         </div>
                     </div>
-                </div>
-            </div>
+                </article>
 
+            </div>
         </div>
+    </section>
 
-    </div>
-
-</div>
-    
-<footer class="footer" ID="Contacto">
-
-    <div class="container text-center">
-
-        <h2 class="mb-3">Contacto</h2>
-        <p class="footer-text mb-4">
-            Podés encontrarme en las siguientes plataformas
-        </p>
-
-        <div class="footer-social">
-
-            <a href="https://www.linkedin.com/in/juan-perrotat/" target="_blank">
-                <img src="Images/linkedin.png" alt="LinkedIn">
-            </a>
-
-            <a href="https://github.com/JuanPerrotat" target="_blank">
-                <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub">
-            </a>
-
+    <!-- CONTACT -->
+    <section class="section" id="contacto">
+        <div class="wrap">
+            <div class="contact-grid">
+                <div>
+                    <div class="section-head" style="margin-bottom: var(--space-lg);">
+                        <h2>Contacto</h2>
+                        <p class="lede">
+                            ¿Buscás sumar a alguien con bases sólidas en .NET y ganas reales de seguir creciendo?
+                            Hablemos.
+                        </p>
+                    </div>
+                    <div class="contact-channels">
+                        <a class="contact-channel" href="mailto:juanperrotat@gmail.com">
+                            <span class="tech-icon" style="--icon-url:url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27%3E%3Cpath d=%27M2 5.5C2 4.67 2.67 4 3.5 4h17c.83 0 1.5.67 1.5 1.5v13c0 .83-.67 1.5-1.5 1.5h-17C2.67 20 2 19.33 2 18.5v-13zm2.2.5 7.8 6.2L19.8 6H4.2zM4 8.1V18h16V8.1l-7.4 5.9a1 1 0 0 1-1.2 0L4 8.1z%27/%3E%3C/svg%3E')" aria-hidden="true"></span>
+                            juanperrotat@gmail.com
+                        </a>
+                        <a class="contact-channel ext" href="https://github.com/JuanPerrotat" target="_blank" rel="noopener">
+                            <span class="tech-icon" style="--icon-url:url('https://cdn.jsdelivr.net/npm/simple-icons@16.23.0/icons/github.svg')" aria-hidden="true"></span>
+                            github.com/JuanPerrotat
+                        </a>
+                        <a class="contact-channel ext" href="https://www.linkedin.com/in/juan-perrotat/" target="_blank" rel="noopener">
+                            <img src="Images/linkedin.png" alt="" style="width:1.5rem;height:1.5rem;" aria-hidden="true">
+                            linkedin.com/in/juan-perrotat
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <br>
+    </section>
 
-         <p class="footer-text mb-4">
-                o escribirme a: 
-                <a href="mailto:juanperrotat@gmail.com" style="color:aliceblue">juanperrotat@gmail.com</a>
-        </p>
+</main>
 
-        <p class="footer-copy mt-4">
-            © 2026 Juan Perrotat · Desarrollado con HTML, CSS y Bootstrap
-        </p>
-
+<footer class="site-footer">
+    <div class="wrap">
+        <span>© 2026 Juan Perrotat</span>
+        <span>Construido con HTML, CSS y JavaScript</span>
     </div>
-
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<script src="Content/script.js" defer></script>
 </body>
 </html>
