@@ -363,7 +363,7 @@ html { scroll-behavior: smooth; }
     position: fixed;
     inset: 0 0 0 auto;
     right: 0;
-    width: min(68vw, 18rem);
+    width: min(51vw, 13.5rem);
     z-index: var(--z-nav-menu);
     background: oklch(100% 0 0 / 0.82);
     backdrop-filter: blur(16px) saturate(1.4);
