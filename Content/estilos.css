@@ -283,17 +283,17 @@ html { scroll-behavior: smooth; }
   z-index: var(--z-nav);
   border-bottom: 1px solid var(--border);
 }
-/* Blur lives on a pseudo-element, not .site-nav itself: backdrop-filter on an
-   ancestor creates a new containing block for position:fixed descendants,
-   which broke the full-screen mobile .nav-menu panel. */
+/* No backdrop-filter here (and no blur) on purpose: Safari/WebKit has a
+   long-standing bug where backdrop-filter on a position:sticky element (or
+   its descendants) breaks the sticky behavior entirely — the nav scrolls
+   away instead of staying pinned. A solid, near-opaque background gives the
+   same "nav sits above content" separation without triggering that bug. */
 .site-nav::before {
   content: '';
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: oklch(96% 0.016 250 / 0.82);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: oklch(96% 0.016 250 / 0.97);
 }
 
 .nav-inner {
@@ -338,6 +338,54 @@ html { scroll-behavior: smooth; }
 .nav-brand:active .nav-brand-text {
   transform: scale(1.20);
 }
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  min-width: 0;
+}
+.nav-social {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  flex-shrink: 0;
+}
+.nav-social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.nav-social-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform var(--dur-base) var(--ease-out-quart);
+}
+span.nav-social-icon {
+  background-color: var(--ink);
+  -webkit-mask-image: var(--icon-url);
+  mask-image: var(--icon-url);
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+}
+.nav-social-link:hover .nav-social-icon,
+.nav-social-link:focus-visible .nav-social-icon,
+.nav-social-link:active .nav-social-icon {
+  transform: scale(1.3);
+}
+
+@media (max-width: 380px) {
+  .nav-social-link { width: 1.3rem; height: 1.3rem; }
+  .nav-left { gap: var(--space-sm); }
+}
+
 .nav-toggle {
   display: none;
   width: 2.5rem;
