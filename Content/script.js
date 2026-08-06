@@ -5,6 +5,10 @@
 
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  /* iOS Safari only fires :active/:hover styles on elements once a touch
+     listener exists somewhere on the page — this no-op enables them globally. */
+  document.addEventListener('touchstart', function () {}, { passive: true });
+
   /* ---- Mobile nav toggle ---- */
   var toggle = document.querySelector('.nav-toggle');
   var menu = document.getElementById('nav-menu');
@@ -28,7 +32,7 @@
 
     menu.querySelectorAll('a').forEach(function (link) {
       link.addEventListener('click', function () {
-        if (window.matchMedia('(max-width: 760px)').matches) setMenu(false);
+        if (window.matchMedia('(max-width: 960px)').matches) setMenu(false);
       });
     });
 

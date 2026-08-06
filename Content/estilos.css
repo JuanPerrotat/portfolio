@@ -284,10 +284,19 @@ html { scroll-behavior: smooth; }
   position: sticky;
   top: 0;
   z-index: var(--z-nav);
+  border-bottom: 1px solid var(--border);
+}
+/* Blur lives on a pseudo-element, not .site-nav itself: backdrop-filter on an
+   ancestor creates a new containing block for position:fixed descendants,
+   which broke the full-screen mobile .nav-menu panel. */
+.site-nav::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
   background: oklch(18% 0.035 255 / 0.88);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--border);
 }
 
 .nav-inner {
@@ -306,8 +315,31 @@ html { scroll-behavior: smooth; }
   font-size: 1.05rem;
   letter-spacing: -0.01em;
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: var(--space-xs);
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.nav-logo {
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: var(--radius-sm);
+  transition: transform var(--dur-base) var(--ease-out-quart);
+}
+.nav-brand-text {
+  display: inline-block;
+  transform-origin: left center;
+  transition: transform var(--dur-base) var(--ease-out-quart);
+}
+.nav-brand:hover .nav-logo,
+.nav-brand:focus-visible .nav-logo,
+.nav-brand:active .nav-logo {
+  transform: scale(1.1);
+}
+.nav-brand:hover .nav-brand-text,
+.nav-brand:focus-visible .nav-brand-text,
+.nav-brand:active .nav-brand-text {
+  transform: scale(1.20);
 }
 .nav-toggle {
   display: none;
@@ -364,7 +396,7 @@ html { scroll-behavior: smooth; }
 }
 .nav-cv:hover { border-color: var(--primary); color: var(--primary) !important; }
 
-@media (max-width: 760px) {
+@media (max-width: 960px) {
   .nav-toggle { display: block; }
   .nav-menu {
     position: fixed;
