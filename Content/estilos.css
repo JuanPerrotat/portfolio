@@ -651,7 +651,7 @@ html { scroll-behavior: smooth; }
   mask-image: linear-gradient(90deg, transparent 0%, #000 18%, #000 82%, transparent 100%);
 }
 @media (max-width: 640px) {
-  .tech-carousel-viewport { --slide-gap: 68px; height: 8rem; }
+  .tech-carousel-viewport { --slide-gap: 96px; height: 8rem; }
 }
 
 .tech-slide {
@@ -710,17 +710,6 @@ html { scroll-behavior: smooth; }
   font-weight: 600;
   color: var(--ink);
   white-space: nowrap;
-}
-
-.stack-group--training .tech-slide-visual::after {
-  content: '';
-  position: absolute;
-  top: -2px;
-  right: -2px;
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 0 3px var(--bg);
 }
 
 .no-js .tech-carousel-viewport { position: static; height: auto; mask-image: none; -webkit-mask-image: none; }
@@ -822,26 +811,42 @@ html { scroll-behavior: smooth; }
   background: var(--surface);
   border: 1px solid var(--border-strong);
   border-radius: var(--radius-lg);
-  padding: clamp(2rem, 5vw, 3rem) clamp(1.5rem, 4vw, 2.5rem);
-  text-align: center;
+  padding: clamp(1.75rem, 4vw, 2.5rem) clamp(1.5rem, 4vw, 2.5rem);
   margin-bottom: var(--space-2xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-lg);
 }
+.edu-logo {
+  width: 3.5rem;
+  height: auto;
+  flex-shrink: 0;
+  opacity: 0.88;
+}
+.edu-text { text-align: left; }
 .edu-featured .stamp {
   display: inline-flex;
   transform: none;
   border-color: var(--primary);
   color: var(--primary);
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-xs);
 }
 .edu-featured h3 {
-  font-size: var(--text-h2);
+  font-size: var(--text-h3);
   color: var(--ink);
 }
 .edu-featured .edu-org {
   color: var(--muted);
   font-size: var(--text-base);
   margin-top: var(--space-xs);
-  text-align: center;
+  text-align: left;
+}
+
+@media (max-width: 600px) {
+  .edu-featured { flex-direction: column; text-align: center; gap: var(--space-md); }
+  .edu-text { text-align: center; }
+  .edu-featured .edu-org { text-align: center; }
 }
 .edu-org { color: var(--muted); font-size: var(--text-xs); margin-top: 0.3rem; }
 .edu-date { font-family: var(--font-mono); font-weight: 600; letter-spacing: 0.02em; font-size: var(--text-2xs); color: var(--muted); margin-top: var(--space-xs); display: block; }
