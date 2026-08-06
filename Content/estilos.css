@@ -1,31 +1,31 @@
 /* =========================================================
    Juan Perrotat — Portfolio
-   "The Blueprint" — an evidence-led dossier drafted on navy.
+   "The Blueprint" — an evidence-led dossier, soft pastel navy paper.
    ========================================================= */
 
 /* ---------- Tokens ---------- */
 :root {
-  /* Color: dark navy drafting-sheet base, cyan linework primary, amber stamp accent */
-  --bg: oklch(18% 0.035 255);
-  --surface: oklch(23% 0.04 255);
-  --surface-2: oklch(27% 0.04 255);
-  --border: oklch(36% 0.045 255);
-  --border-strong: oklch(48% 0.05 255);
-  --grid-line: oklch(95% 0.012 250 / 0.05);
+  /* Color: pale pastel-navy paper base, mid-blue primary, warm amber accent */
+  --bg: oklch(96% 0.016 250);
+  --surface: oklch(99% 0.008 250);
+  --surface-2: oklch(93% 0.022 250);
+  --border: oklch(89% 0.02 250);
+  --border-strong: oklch(78% 0.03 250);
 
-  --ink: oklch(95% 0.012 250);
-  --muted: oklch(74% 0.03 250);
-  --muted-2: oklch(66% 0.03 250);
+  --ink: oklch(28% 0.05 258);
+  --muted: oklch(46% 0.045 255);
+  --muted-2: oklch(40% 0.045 255);
 
-  --primary: oklch(80% 0.11 220);
-  --primary-hover: oklch(87% 0.1 220);
-  --primary-soft: oklch(80% 0.11 220 / 0.14);
+  --primary: oklch(48% 0.13 252);
+  --primary-hover: oklch(40% 0.14 252);
+  --primary-soft: oklch(48% 0.13 252 / 0.12);
 
-  --accent: oklch(74% 0.16 55);
-  --accent-hover: oklch(80% 0.17 55);
-  --accent-soft: oklch(74% 0.16 55 / 0.16);
+  --accent: oklch(62% 0.15 52);
+  --accent-hover: oklch(56% 0.16 52);
+  --accent-soft: oklch(62% 0.15 52 / 0.14);
+  --accent-text: oklch(42% 0.15 40);
 
-  --on-color: oklch(16% 0.03 255);
+  --on-color: oklch(18% 0.03 255);
 
   /* Type — one family, site-wide. Hierarchy comes from weight/size/tracking, not typeface. */
   --font-display: 'Archivo', 'Arial Narrow', sans-serif;
@@ -77,10 +77,7 @@ html { -webkit-text-size-adjust: 100%; }
 
 body {
   margin: 0;
-  background:
-    linear-gradient(var(--grid-line) 1px, transparent 1px) 0 0 / 100% 40px,
-    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px) 0 0 / 40px 100%,
-    var(--bg);
+  background: var(--bg);
   color: var(--ink);
   font-family: var(--font-body);
   font-size: var(--text-base);
@@ -247,7 +244,7 @@ html { scroll-behavior: smooth; }
   line-height: 1;
 }
 .tag--proven { background: var(--primary-soft); color: var(--primary); border: 1px solid color-mix(in oklch, var(--primary) 45%, transparent); }
-.tag--training { background: var(--accent-soft); color: var(--accent); border: 1px solid color-mix(in oklch, var(--accent) 50%, transparent); }
+.tag--training { background: var(--accent-soft); color: var(--accent-text); border: 1px solid color-mix(in oklch, var(--accent) 50%, transparent); }
 .tag--neutral { background: var(--surface-2); color: var(--muted); border: 1px solid var(--border-strong); }
 
 .stamp {
@@ -294,7 +291,7 @@ html { scroll-behavior: smooth; }
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: oklch(18% 0.035 255 / 0.88);
+  background: oklch(96% 0.016 250 / 0.82);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
@@ -381,20 +378,44 @@ html { scroll-behavior: smooth; }
 }
 .nav-menu a:hover,
 .nav-menu a[aria-current="true"] { color: var(--ink); }
-.nav-menu a[aria-current="true"]::after {
+
+/* Hover/tap sweep, directly under the link text — desktop hover, and
+   :active as its touch equivalent so it works the same on tablet/mobile. */
+.nav-menu a:not(.nav-cv)::before {
   content: '';
   position: absolute;
-  left: 0; right: 0; bottom: -0.85rem;
+  left: 0;
+  right: 0;
+  bottom: 0;
   height: 2px;
   background: var(--primary);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform var(--dur-fast) var(--ease-out-quart);
+  pointer-events: none;
+}
+.nav-menu a:not(.nav-cv):hover::before,
+.nav-menu a:not(.nav-cv):focus-visible::before,
+.nav-menu a:not(.nav-cv):active::before {
+  transform: scaleX(1);
 }
 .nav-cv {
   border: 1px solid var(--border-strong);
   padding: 0.5em 1em !important;
   border-radius: var(--radius-sm);
   color: var(--ink) !important;
+  background-color: transparent;
+  transition: background-color var(--dur-fast) var(--ease-out-quart),
+              border-color var(--dur-fast) var(--ease-out-quart),
+              color var(--dur-fast) var(--ease-out-quart);
 }
-.nav-cv:hover { border-color: var(--primary); color: var(--primary) !important; }
+.nav-cv:hover,
+.nav-cv:focus-visible,
+.nav-cv:active {
+  background-color: var(--primary-soft);
+  border-color: var(--primary);
+  color: var(--primary) !important;
+}
 
 @media (max-width: 960px) {
   .nav-toggle { display: block; }
@@ -404,7 +425,7 @@ html { scroll-behavior: smooth; }
     right: 0;
     width: min(51vw, 13.5rem);
     z-index: var(--z-nav-menu);
-    background: oklch(20% 0.038 255 / 0.92);
+    background: oklch(98% 0.01 250 / 0.94);
     backdrop-filter: blur(16px) saturate(1.4);
     -webkit-backdrop-filter: blur(16px) saturate(1.4);
     border-left: 1px solid var(--border);
@@ -418,7 +439,6 @@ html { scroll-behavior: smooth; }
   }
   .nav-menu[data-open="true"] { transform: translateX(0); }
   .nav-menu a { font-size: var(--text-lead); color: var(--ink); }
-  .nav-menu a[aria-current="true"]::after { bottom: -0.4rem; }
 }
 
 /* ---------- Hero ---------- */
