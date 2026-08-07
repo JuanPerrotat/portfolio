@@ -9,6 +9,22 @@
      listener exists somewhere on the page — this no-op enables them globally. */
   document.addEventListener('touchstart', function () {}, { passive: true });
 
+  /* ---- Nav height (site-nav is position:fixed, so #main needs to reserve
+     its space manually via the --nav-height custom property). Measured
+     rather than hardcoded so it stays correct across breakpoints and after
+     web fonts swap in. ---- */
+  var siteNav = document.querySelector('.site-nav');
+  if (siteNav) {
+    var setNavHeight = function () {
+      document.documentElement.style.setProperty('--nav-height', siteNav.offsetHeight + 'px');
+    };
+    setNavHeight();
+    window.addEventListener('resize', setNavHeight);
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(setNavHeight);
+    }
+  }
+
   /* ---- Mobile nav toggle ---- */
   var toggle = document.querySelector('.nav-toggle');
   var menu = document.getElementById('nav-menu');

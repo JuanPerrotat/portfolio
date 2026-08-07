@@ -69,6 +69,12 @@
   --z-nav: 100;
   --z-nav-menu: 110;
   --z-toast: 200;
+
+  /* Fallback used before script.js measures the real nav height (and if JS
+     is disabled entirely). Set slightly generous rather than short: a few
+     extra px of gap is invisible, whereas too few hides content under the
+     fixed nav. Measured height is ~72px desktop / ~73px mobile. */
+  --nav-height: 73px;
 }
 
 /* ---------- Reset ---------- */
@@ -77,6 +83,12 @@ html { -webkit-text-size-adjust: 100%; }
 
 body {
   margin: 0;
+  /* Safety net against horizontal overflow: on phones, any element sticking
+     out past the right edge widens the layout viewport, which stretches the
+     fixed nav beyond the screen and hides the hamburger button off-screen.
+     Uses `clip`, not `hidden`, on purpose — `hidden` would make the body a
+     scroll container and break position:fixed/sticky; `clip` does not. */
+  overflow-x: clip;
   background: var(--bg);
   color: var(--ink);
   font-family: var(--font-body);
@@ -147,6 +159,17 @@ html { scroll-behavior: smooth; }
   max-width: var(--content-width);
   margin-inline: auto;
   padding-inline: clamp(1.25rem, 4vw, 3rem);
+}
+
+/* .site-nav is position:fixed and out of flow, so #main has to reserve
+   the space it would otherwise occupy. scroll-margin-top keeps anchor-link
+   jumps (nav links, skip-link) from landing a section's top edge under it. */
+#main {
+  padding-top: var(--nav-height);
+}
+.hero,
+.section {
+  scroll-margin-top: var(--nav-height);
 }
 
 .section {
@@ -277,23 +300,29 @@ html { scroll-behavior: smooth; }
 .verified svg { width: 1em; height: 1em; flex-shrink: 0; }
 
 /* ---------- Nav ---------- */
+/* position: fixed, not sticky. Sticky has real, hard-to-pin-down mobile
+   bugs (WebKit in particular) that don't reproduce in a desktop browser.
+   Fixed is unconditionally reliable everywhere, at the cost of needing to
+   compensate the space it no longer reserves in flow — see --nav-height
+   below (measured in script.js) and #main's padding-top. */
 .site-nav {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: var(--z-nav);
   border-bottom: 1px solid var(--border);
 }
-/* No backdrop-filter here (and no blur) on purpose: Safari/WebKit has a
-   long-standing bug where backdrop-filter on a position:sticky element (or
-   its descendants) breaks the sticky behavior entirely — the nav scrolls
-   away instead of staying pinned. A solid, near-opaque background gives the
-   same "nav sits above content" separation without triggering that bug. */
+/* Blur is safe now that .site-nav is position:fixed rather than sticky
+   (the backdrop-filter-breaks-sticky WebKit bug only applies to sticky). */
 .site-nav::before {
   content: '';
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: oklch(96% 0.016 250 / 0.97);
+  background: oklch(96% 0.016 250 / 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .nav-inner {
@@ -483,9 +512,22 @@ span.nav-social-icon {
     gap: var(--space-lg);
     padding: var(--space-2xl) var(--space-lg);
     transform: translateX(100%);
-    transition: transform var(--dur-slow) var(--ease-out-expo);
+    /* visibility (not just the offscreen transform) matters: a merely
+       translated panel still occupies space to the right of the viewport,
+       which adds horizontal overflow to the document. That overflow widens
+       the layout viewport on phones, which in turn stretches the fixed nav
+       past the screen and pushes the hamburger button out of sight.
+       Hiding it also keeps closed-menu links out of the tab order. */
+    visibility: hidden;
+    transition: transform var(--dur-slow) var(--ease-out-expo),
+                visibility 0s linear var(--dur-slow);
   }
-  .nav-menu[data-open="true"] { transform: translateX(0); }
+  .nav-menu[data-open="true"] {
+    transform: translateX(0);
+    visibility: visible;
+    transition: transform var(--dur-slow) var(--ease-out-expo),
+                visibility 0s;
+  }
   .nav-menu a { font-size: var(--text-lead); color: var(--ink); }
 }
 
@@ -695,6 +737,11 @@ span.nav-social-icon {
   width: 100%;
   height: 9.5rem;
   --slide-gap: 112px;
+  /* overflow:hidden is load-bearing, not cosmetic: the slides are absolutely
+     positioned and pushed sideways by --slide-x, so without clipping they
+     escape this box and add horizontal overflow to the whole document. The
+     mask below only hides them visually — it does not clip layout. */
+  overflow: hidden;
   -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 18%, #000 82%, transparent 100%);
   mask-image: linear-gradient(90deg, transparent 0%, #000 18%, #000 82%, transparent 100%);
 }
