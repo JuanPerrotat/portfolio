@@ -1,36 +1,41 @@
 /* =========================================================
    Juan Perrotat — Portfolio
-   "The Blueprint" — an evidence-led dossier, soft pastel navy paper.
+   "Dossier" — expediente de evidencia sobre papel neutro.
+   Un solo color de marca (rojo ladrillo) carga toda la accion; la distincion
+   probado / en aprendizaje la lleva la forma (relleno vs. contorno).
    ========================================================= */
 
 /* ---------- Tokens ---------- */
 :root {
-  /* Color: pale pastel-navy paper base, mid-blue primary, warm amber accent */
-  --bg: oklch(96% 0.016 250);
-  --surface: oklch(99% 0.008 250);
-  --surface-2: oklch(93% 0.022 250);
-  --border: oklch(89% 0.02 250);
-  --border-strong: oklch(78% 0.03 250);
+  /* Color. Papel neutro: el croma minimo tira hacia el hue de la marca (30),
+     no hacia el calido por defecto, para que no lea "crema". Un unico color
+     de marca lleva accion, links y foco; no hay segundo hue compitiendo. */
+  --bg: oklch(96.8% 0.004 30);
+  --surface: oklch(99.4% 0.002 30);
+  --surface-2: oklch(93.5% 0.006 30);
+  --border: oklch(90% 0.006 30);
+  --border-strong: oklch(80% 0.01 30);
+  /* Borde de controles: separado de --border-strong porque un borde que es el
+     unico limite visible de un control necesita 3:1 (este da 3.05 sobre --bg),
+     mientras que un separador estructural se veria pesado a ese contraste. */
+  --border-control: oklch(62% 0.012 30);
 
-  --ink: oklch(28% 0.05 258);
-  --muted: oklch(46% 0.045 255);
-  --muted-2: oklch(40% 0.045 255);
+  --ink: oklch(24% 0.012 30);      /* 15.0:1 sobre --bg */
+  --muted: oklch(46% 0.014 30);    /*  6.5:1 sobre --bg */
+  --muted-2: oklch(40% 0.014 30);  /*  8.4:1 sobre --bg */
 
-  --primary: oklch(48% 0.13 252);
-  --primary-hover: oklch(40% 0.14 252);
-  --primary-soft: oklch(48% 0.13 252 / 0.12);
+  --primary: oklch(45% 0.15 27);        /* 7.3:1 sobre --bg */
+  --primary-hover: oklch(38% 0.15 27);
+  --primary-soft: oklch(45% 0.15 27 / 0.10);
 
-  --accent: oklch(62% 0.15 52);
-  --accent-hover: oklch(56% 0.16 52);
-  --accent-soft: oklch(62% 0.15 52 / 0.14);
-  --accent-text: oklch(42% 0.15 40);
-
-  --on-color: oklch(18% 0.03 255);
+  --on-color: oklch(98.5% 0.004 30);    /* 7.7:1 sobre --primary */
 
   /* Type — one family, site-wide. Hierarchy comes from weight/size/tracking, not typeface. */
+  /* Una sola familia. La jerarquia la cargan peso, tamano y tracking, no un
+     segundo tipo. --font-label es el rol de etiqueta/dato, no una mono. */
   --font-display: 'Archivo', 'Arial Narrow', sans-serif;
   --font-body: 'Archivo', 'Arial Narrow', sans-serif;
-  --font-mono: 'Archivo', 'Arial Narrow', sans-serif;
+  --font-label: 'Archivo', 'Arial Narrow', sans-serif;
 
   --text-2xs: 0.75rem;
   --text-xs: 0.875rem;
@@ -102,7 +107,22 @@ body {
 }
 
 img { max-width: 100%; display: block; }
-a { color: inherit; text-decoration: none; }
+a {
+  color: inherit;
+  text-decoration: none;
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: 1px;
+}
+
+/* Las superficies que dibuja el navegador tambien son parte del diseno. */
+::selection { background: oklch(45% 0.15 27 / 0.18); color: var(--ink); }
+:root {
+  color-scheme: light;
+  scrollbar-color: var(--border-control) transparent;
+  scrollbar-width: thin;
+  accent-color: var(--primary);
+  caret-color: var(--primary);
+}
 ul, ol { margin: 0; padding: 0; }
 button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
 
@@ -115,7 +135,17 @@ h1, h2, h3, h4 {
   text-wrap: balance;
 }
 
-p { margin: 0; text-align: justify; text-wrap: pretty; hyphens: auto; }
+/* Justificado por prolijidad. hyphens: manual (no auto) es lo que evita que
+   se parta una palabra al final de la linea: el justify reparte el sobrante
+   en los espacios, nunca dentro de una palabra. */
+p { margin: 0; text-align: justify; text-wrap: pretty; hyphens: manual; }
+
+/* Los subtitulos y bajadas de una linea no son prosa: al envolverse en
+   pantallas angostas el justify les abre huecos enormes entre palabras. */
+.hero-role,
+.exhibit-sub,
+.role-org,
+.edu-org { text-align: left; }
 p + p { margin-top: var(--space-sm); }
 
 /* Respect zoom; never disable it (see meta viewport in HTML) */
@@ -145,7 +175,7 @@ html { scroll-behavior: smooth; }
   left: -9999px;
   top: 0;
   z-index: var(--z-toast);
-  background: var(--accent);
+  background: var(--primary);
   color: var(--on-color);
   padding: var(--space-2xs) var(--space-sm);
   font-weight: 600;
@@ -218,15 +248,15 @@ html { scroll-behavior: smooth; }
 .btn:active { transform: translateY(0); }
 
 .btn-primary {
-  background: var(--accent);
+  background: var(--primary);
   color: var(--on-color);
 }
-.btn-primary:hover { background: var(--accent-hover); }
+.btn-primary:hover { background: var(--primary-hover); }
 
 .btn-ghost {
   background: transparent;
   color: var(--ink);
-  border-color: var(--border-strong);
+  border-color: var(--border-control);
 }
 .btn-ghost:hover { border-color: var(--primary); color: var(--primary); }
 
@@ -259,7 +289,7 @@ html { scroll-behavior: smooth; }
   display: inline-flex;
   align-items: center;
   gap: 0.3em;
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: var(--text-2xs);
   font-weight: 600;
   letter-spacing: 0.03em;
@@ -267,15 +297,17 @@ html { scroll-behavior: smooth; }
   border-radius: var(--radius-sm);
   line-height: 1;
 }
-.tag--proven { background: var(--primary-soft); color: var(--primary); border: 1px solid color-mix(in oklch, var(--primary) 45%, transparent); }
-.tag--training { background: var(--accent-soft); color: var(--accent-text); border: 1px solid color-mix(in oklch, var(--accent) 50%, transparent); }
+/* Dominado = relleno solido; en aprendizaje = contorno. La diferencia es de
+   forma, no de color, asi el sistema entero vive en un solo hue. */
+.tag--proven { background: var(--ink); color: var(--on-color); border: 1px solid var(--ink); }
+.tag--training { background: transparent; color: var(--muted-2); border: 1px solid var(--border-control); }
 .tag--neutral { background: var(--surface-2); color: var(--muted); border: 1px solid var(--border-strong); }
 
 .stamp {
   display: inline-flex;
   align-items: center;
   gap: 0.4em;
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: var(--text-xs);
   font-weight: 700;
   letter-spacing: 0.03em;
@@ -283,7 +315,7 @@ html { scroll-behavior: smooth; }
   border-radius: var(--radius-sm);
   transform: rotate(-1.4deg);
 }
-.stamp--training { background: var(--accent); color: var(--on-color); }
+.stamp--training { background: transparent; border: 1.5px dashed var(--border-control); color: var(--muted-2); }
 .stamp--outline {
   background: transparent;
   border: 1.5px solid var(--primary);
@@ -321,7 +353,7 @@ html { scroll-behavior: smooth; }
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: oklch(96% 0.016 250 / 0.85);
+  background: oklch(96.8% 0.004 30 / 0.86);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
@@ -478,7 +510,7 @@ span.nav-social-icon {
   transform: scaleX(1);
 }
 .nav-cv {
-  border: 1px solid var(--border-strong);
+  border: 1px solid var(--border-control);
   padding: 0.5em 1em !important;
   border-radius: var(--radius-sm);
   color: var(--ink) !important;
@@ -503,7 +535,7 @@ span.nav-social-icon {
     right: 0;
     width: min(51vw, 13.5rem);
     z-index: var(--z-nav-menu);
-    background: oklch(98% 0.01 250 / 0.94);
+    background: oklch(98.5% 0.004 30 / 0.95);
     backdrop-filter: blur(16px) saturate(1.4);
     -webkit-backdrop-filter: blur(16px) saturate(1.4);
     border-left: 1px solid var(--border);
@@ -536,6 +568,29 @@ span.nav-social-icon {
 .hero {
   position: relative;
   padding-block: clamp(2.5rem, 6vw, 4rem) clamp(2rem, 5vw, 3rem);
+  /* El texto no llena el ancho del wrap: en vez de dejar el vacio a la
+     derecha, el retrato lo ocupa. La franja de evidencia cruza las dos
+     columnas, asi que la grilla es de dos filas. */
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    "copy portrait"
+    "proof proof";
+  column-gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: center;
+}
+.hero-copy { grid-area: copy; }
+.hero-portrait { grid-area: portrait; margin: 0; }
+.hero-portrait img {
+  width: clamp(13.5rem, 22vw, 18rem);
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  /* el papel del marco lo separa del lienzo sin recurrir a una sombra */
+  background: var(--surface);
+  padding: 6px;
 }
 .hero::before,
 .hero::after {
@@ -563,7 +618,7 @@ span.nav-social-icon {
   display: inline-flex;
   align-items: center;
   gap: 0.6em;
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: var(--text-xs);
   font-weight: 600;
   color: var(--muted);
@@ -575,8 +630,8 @@ span.nav-social-icon {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 0 3px var(--accent-soft);
+  background: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-soft);
   flex-shrink: 0;
 }
 .hero-title {
@@ -602,6 +657,7 @@ span.nav-social-icon {
   margin-top: var(--space-lg);
 }
 .hero-proof {
+  grid-area: proof;
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-lg);
@@ -611,18 +667,21 @@ span.nav-social-icon {
   list-style: none;
 }
 .hero-proof li {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: var(--text-xs);
   font-weight: 600;
   letter-spacing: 0.02em;
   color: var(--muted);
   display: flex;
-  align-items: center;
+  /* flex-start, no center: si el item se envuelve en dos lineas, center deja
+     el punto flotando entre ambas en vez de junto a la primera */
+  align-items: flex-start;
   gap: 0.5em;
 }
 .hero-proof li::before {
   content: '';
   width: 6px; height: 6px;
+  margin-top: calc(0.82em - 3px);
   background: var(--primary);
   border-radius: 50%;
   flex-shrink: 0;
@@ -656,7 +715,7 @@ span.nav-social-icon {
   gap: var(--space-sm);
 }
 .exhibit-date {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: var(--text-xs);
   font-weight: 600;
   letter-spacing: 0.02em;
@@ -683,8 +742,10 @@ span.nav-social-icon {
 .exhibit-points li::before {
   content: '';
   position: absolute;
-  left: 0; top: 0.55em;
-  width: 6px; height: 1px;
+  /* alineado al centro optico de la primera linea (line-height 1.65),
+     no al tope del li, que lo dejaba flotando como un volado */
+  left: 0; top: calc(0.82em - 1px);
+  width: 8px; height: 2px;
   background: var(--primary);
 }
 .exhibit-stack {
@@ -773,7 +834,7 @@ span.nav-social-icon {
 .tech-slide[data-active="true"] { cursor: default; }
 .tech-slide[data-active="false"]:hover .tech-slide-visual,
 .tech-slide[data-active="false"]:focus-visible .tech-slide-visual {
-  outline: 2px solid var(--border-strong);
+  outline: 2px solid var(--border-control);
   outline-offset: 6px;
   border-radius: 50%;
 }
@@ -794,7 +855,7 @@ span.nav-social-icon {
   background: var(--surface-2);
   border: 1px solid var(--border-strong);
   color: var(--muted);
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-weight: 700;
   font-size: var(--text-base);
   display: flex;
@@ -827,20 +888,22 @@ span.nav-social-icon {
   width: 2.25rem;
   height: 2.25rem;
   border-radius: 50%;
-  border: 1px solid var(--border-strong);
+  border: 1px solid var(--border-control);
   color: var(--muted);
+  /* svg, no glifos unicode: trazo consistente en todos los sistemas */
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.1rem;
   line-height: 1;
   transition: border-color var(--dur-fast) var(--ease-out-quart), color var(--dur-fast) var(--ease-out-quart);
 }
-.stack-group--proven .tech-carousel-btn:hover { border-color: var(--primary); color: var(--primary); }
-.stack-group--training .tech-carousel-btn:hover { border-color: var(--accent); color: var(--accent-text); }
+.tech-carousel-btn:hover { border-color: var(--primary); color: var(--primary); }
+
+.tech-carousel-btn svg { width: 1.15rem; height: 1.15rem; }
 
 .tech-carousel-counter {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
+  font-variant-numeric: tabular-nums;
   font-size: var(--text-2xs);
   font-weight: 600;
   color: var(--muted);
@@ -863,7 +926,7 @@ span.nav-social-icon {
 }
 .role-row:last-child { border-bottom: 0; }
 .role-date {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: var(--text-xs);
   font-weight: 600;
   letter-spacing: 0.02em;
@@ -930,7 +993,7 @@ span.nav-social-icon {
   .edu-featured .edu-org { text-align: center; }
 }
 .edu-org { color: var(--muted); font-size: var(--text-xs); margin-top: 0.3rem; }
-.edu-date { font-family: var(--font-mono); font-weight: 600; letter-spacing: 0.02em; font-size: var(--text-2xs); color: var(--muted); margin-top: var(--space-xs); display: block; }
+.edu-date { font-family: var(--font-label); font-weight: 600; letter-spacing: 0.02em; font-size: var(--text-2xs); color: var(--muted); margin-top: var(--space-xs); display: block; }
 
 .edu-origin {
   margin-top: var(--space-xl);
@@ -962,7 +1025,7 @@ span.nav-social-icon {
 .cert-main { display: flex; flex-direction: column; gap: 0.2rem; min-width: 0; }
 .cert-title { font-weight: 600; }
 .cert-meta { color: var(--muted); font-size: var(--text-xs); }
-.cert-date { font-family: var(--font-mono); font-weight: 600; letter-spacing: 0.02em; font-size: var(--text-2xs); color: var(--muted); white-space: nowrap; }
+.cert-date { font-family: var(--font-label); font-weight: 600; letter-spacing: 0.02em; font-size: var(--text-2xs); color: var(--muted); white-space: nowrap; }
 
 /* ---------- Projects ---------- */
 .project-grid {
@@ -1000,6 +1063,14 @@ span.nav-social-icon {
 .project-body h3 { font-size: 1.15rem; }
 .project-desc { color: var(--muted); font-size: var(--text-xs); flex: 1; }
 .project-tags { display: flex; flex-wrap: wrap; gap: var(--space-2xs); }
+/* Dentro de una card el tag solo nombra la tecnologia usada: no hay reclamo de
+   dominio que justifique el relleno solido, que ademas apelmaza la card. El
+   relleno queda reservado para el stack, donde "con experiencia" si significa algo. */
+.project-tags .tag {
+  background: transparent;
+  color: var(--muted-2);
+  border: 1px solid var(--border-control);
+}
 .project-links {
   display: flex;
   gap: var(--space-md);
@@ -1023,7 +1094,7 @@ body.has-lightbox { overflow: hidden; }
   align-items: center;
   justify-content: center;
   padding: clamp(1rem, 4vw, 2.5rem);
-  background: oklch(20% 0.02 250 / 0.85);
+  background: oklch(20% 0.012 30 / 0.86);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   opacity: 0;
@@ -1088,17 +1159,18 @@ body.has-lightbox { overflow: hidden; }
 }
 .lightbox-caption {
   font-size: var(--text-xs);
-  color: oklch(96% 0.01 250);
+  color: oklch(96% 0.004 30);
   text-align: center;
   max-width: 60ch;
 }
 .lightbox-hint {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: var(--text-2xs);
-  color: oklch(88% 0.01 250);
+  color: oklch(88% 0.004 30);
   text-align: center;
 }
 
+.lightbox-close svg { width: 1.25rem; height: 1.25rem; }
 .lightbox-close {
   position: absolute;
   top: clamp(0.75rem, 3vw, 1.5rem);
@@ -1110,7 +1182,7 @@ body.has-lightbox { overflow: hidden; }
   justify-content: center;
   font-size: 1.5rem;
   line-height: 1;
-  color: oklch(96% 0.01 250);
+  color: oklch(96% 0.004 30);
   background: oklch(100% 0 0 / 0.12);
   border: 1px solid oklch(100% 0 0 / 0.28);
   border-radius: var(--radius-sm);
@@ -1173,7 +1245,7 @@ body.has-lightbox { overflow: hidden; }
 }
 .contact-channel:hover .tech-icon { background-color: var(--primary); }
 .contact-meta {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: var(--text-xs);
   color: var(--muted);
   max-width: 24rem;
@@ -1193,7 +1265,46 @@ body.has-lightbox { overflow: hidden; }
   color: var(--muted-2);
 }
 
-/* ---------- Reveal-on-scroll ---------- */
+/* ---------- Motion ----------
+   Un solo momento con autoria: la entrada del hero, que abre el expediente
+   (las escuadras se dibujan, el nombre se descubre por mascara). El resto de
+   la pagina no repite esa entrada: solo las listas que son listas escalonan
+   sus items al aparecer. Todo parte de un estado visible por defecto. */
+
+/* --- Entrada del hero (en carga, no en scroll) --- */
+@media (prefers-reduced-motion: no-preference) {
+  .hero::before,
+  .hero::after { animation: dossier-mark 520ms var(--ease-out-expo) both; }
+  .hero::after { animation-delay: 90ms; }
+
+  /* La secuencia completa cierra en ~0.8s: un recruiter escanea, no espera. */
+  .hero-title    { animation: dossier-unmask 560ms var(--ease-out-expo) 40ms both; }
+  .hero-portrait { animation: dossier-unmask 620ms var(--ease-out-expo) 120ms both; }
+  .hero-role    { animation: dossier-rise 440ms var(--ease-out-expo) 160ms both; }
+  .hero-thesis  { animation: dossier-rise 440ms var(--ease-out-expo) 220ms both; }
+  .hero-actions { animation: dossier-rise 440ms var(--ease-out-expo) 280ms both; }
+  .hero-proof > li {
+    animation: dossier-rise 400ms var(--ease-out-expo) both;
+    animation-delay: calc(340ms + var(--i, 0) * 55ms);
+  }
+}
+
+@keyframes dossier-mark {
+  from { opacity: 0; transform: scale(0.3); }
+  to   { opacity: 0.8; transform: none; }
+}
+/* clip-path en lugar de solo opacidad: el nombre se descubre de abajo hacia
+   arriba, como un sello que se imprime. */
+@keyframes dossier-unmask {
+  from { opacity: 0; clip-path: inset(0 0 108% 0); transform: translateY(0.12em); }
+  to   { opacity: 1; clip-path: inset(0 0 -20% 0); transform: none; }
+}
+@keyframes dossier-rise {
+  from { opacity: 0; transform: translateY(9px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* --- Listas que aparecen como listas --- */
 [data-reveal] {
   opacity: 1;
   transform: none;
@@ -1201,22 +1312,56 @@ body.has-lightbox { overflow: hidden; }
 @media (prefers-reduced-motion: no-preference) {
   [data-reveal] {
     opacity: 0;
-    transform: translateY(18px);
-    transition: opacity var(--dur-slow) var(--ease-out-quart), transform var(--dur-slow) var(--ease-out-quart);
+    transform: translateY(12px);
+    transition: opacity var(--dur-base) var(--ease-out-quart), transform var(--dur-base) var(--ease-out-quart);
   }
   [data-reveal].is-visible {
     opacity: 1;
     transform: none;
   }
+  /* tope al escalonado: una lista larga no debe hacer esperar al ultimo item */
   [data-reveal-group] > * {
-    transition-delay: calc(var(--i, 0) * 70ms);
+    transition-delay: calc(min(var(--i, 0), 5) * 55ms);
   }
 }
 
 .no-js [data-reveal] { opacity: 1; transform: none; }
 
 /* ---------- Responsive ---------- */
+@media (max-width: 760px) {
+  /* El retrato no queda suelto arriba: forma una fila de identidad junto al
+     nombre y el rol, y recien despues sigue el texto a todo el ancho.
+     display: contents saca al wrapper de la grilla para poder ubicar sus
+     hijos por separado sin duplicar el markup. */
+  .hero {
+    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-areas:
+      "portrait title"
+      "role     role"
+      "thesis   thesis"
+      "actions  actions"
+      "proof    proof";
+    column-gap: var(--space-sm);
+    row-gap: var(--space-2xs);
+    align-items: end;
+  }
+  .hero-copy { display: contents; }
+  .hero-title { grid-area: title; align-self: center; }
+  .hero-role { grid-area: role; margin-top: var(--space-2xs); }
+  .hero-thesis { grid-area: thesis; margin-top: var(--space-md); }
+  .hero-actions { grid-area: actions; margin-top: var(--space-md); }
+  .hero-portrait {
+    grid-area: portrait;
+    align-self: center;
+  }
+  .hero-portrait img { width: 5rem; padding: 4px; }
+}
+
 @media (max-width: 640px) {
+  /* A ~34 caracteres por linea el justificado reparte demasiado sobrante en
+     los espacios. Bandera derecha solo aca; de 640 para arriba sigue justificado. */
+  p { text-align: left; }
+
   .hero-proof { gap: var(--space-md); }
   .exhibit-head { flex-direction: column; align-items: flex-start; }
   .contact-grid { flex-direction: column; }

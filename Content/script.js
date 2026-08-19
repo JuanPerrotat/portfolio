@@ -217,7 +217,10 @@
     lightbox.setAttribute('aria-modal', 'true');
     lightbox.setAttribute('aria-label', 'Captura ampliada');
     lightbox.innerHTML =
-      '<button type="button" class="lightbox-close" aria-label="Cerrar la vista ampliada">\u00d7</button>' +
+      '<button type="button" class="lightbox-close" aria-label="Cerrar la vista ampliada">' +
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true">' +
+          '<path d="M6 6l12 12M18 6L6 18"/></svg>' +
+      '</button>' +
       '<figure class="lightbox-figure">' +
         '<div class="lightbox-scroll"><img alt=""></div>' +
         '<figcaption class="lightbox-caption"></figcaption>' +

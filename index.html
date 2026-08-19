@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#F7F3F3">
     <title>Juan Perrotat | Dev</title>
     <meta name="description" content="Portfolio de Juan Perrotat, desarrollador junior en C#, .NET y JavaScript. Proyectos reales, certificaciones y experiencia freelance en equipo.">
     <meta property="og:title" content="Juan Perrotat · Desarrollador Junior .NET">
@@ -54,20 +55,26 @@
 
     <!-- HERO -->
     <section class="hero wrap" id="top">
-        <h1 class="hero-title" data-reveal>Juan Perrotat</h1>
-        <p class="hero-role" data-reveal>Desarrollador Junior — .NET &amp; JavaScript</p>
-        <p class="hero-thesis" data-reveal>
-            Construyo software con bases sólidas en C# y .NET, y sumo experiencia real como desarrollador Jr.
-            en un stack JavaScript moderno junto a un equipo en producción de aplicaciones web para clientes.
-        </p>
-        <div class="hero-actions" data-reveal>
-            <a class="btn btn-primary" href="#experiencia">Ver experiencia actual</a>
-            <a class="btn btn-ghost" href="mailto:juanperrotat@gmail.com">Contactame</a>
+        <div class="hero-copy">
+            <h1 class="hero-title">Juan Perrotat</h1>
+            <p class="hero-role">Desarrollador Junior — .NET &amp; JavaScript</p>
+            <p class="hero-thesis">
+                Construyo software con bases sólidas en C# y .NET, con experiencia real entregando proyectos
+                para clientes: en equipo sobre un stack JavaScript moderno y por mi cuenta de punta a punta.
+                Busco mi primer puesto formal como desarrollador.
+            </p>
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="#experiencia">Ver mi experiencia</a>
+                <a class="btn btn-ghost" href="mailto:juanperrotat@gmail.com">Contactame</a>
+            </div>
         </div>
-        <ul class="hero-proof" data-reveal-group>
-            <li style="--i:0" data-reveal>Freelance en equipo desde junio de 2026</li>
-            <li style="--i:1" data-reveal>Certificaciones en C# y .NET</li>
-            <li style="--i:2" data-reveal>Tecnicatura en Programación (UTN) en curso</li>
+        <figure class="hero-portrait">
+            <img src="Images/foto.jpg" alt="Juan Perrotat" width="800" height="800" fetchpriority="high">
+        </figure>
+        <ul class="hero-proof">
+            <li style="--i:0">Freelance en equipo y por cuenta propia</li>
+            <li style="--i:1">Certificaciones en C# y .NET</li>
+            <li style="--i:2">Tecnicatura en Programación (UTN) en curso</li>
         </ul>
     </section>
 
@@ -78,28 +85,32 @@
                 <div class="section-head">
                     <h2>Sobre mí</h2>
                     <p class="lede">
-                        Antes de escribir código pasé diez años analizando datos, personas y sistemas
-                        en un aula y en un centro de investigación. Esa base sostiene cómo trabajo hoy.
+                        Ya entregué proyectos reales para clientes, en equipo y por mi cuenta, mientras
+                        formalizo mi formación en la universidad.
                     </p>
                 </div>
                 <div class="prose">
                     <p>
-                        Soy desarrollador junior con formación en C# y .NET, con experiencia práctica en
-                        aplicaciones de escritorio (WinForms) y web (WebForms y MVC ASP.NET), todas construidas
-                        con arquitectura en capas, validaciones, manejo de excepciones y persistencia en SQL
-                        Server mediante operaciones CRUD y ABM.
+                        Mi experiencia práctica viene de proyectos con clientes reales. Entre junio y agosto de
+                        2026 integré un equipo de desarrollo, bajo la guía de un líder técnico senior, en Vivero
+                        Humus: un sistema de gestión de caja construido con Next.js, TypeScript y PostgreSQL.
+                        Por mi cuenta desarrollé y puse en producción la landing de Estética Habibah, desde el
+                        código hasta el despliegue y el hosting, y sigo tomando proyectos propios. Son trabajos
+                        con clientes, plazos y decisiones técnicas.
                     </p>
                     <p>
-                        Vengo de una formación docente en Historia (UBA) y trabajé como investigador en ciencias
-                        sociales en el CEICS. Diez años analizando información, redactando documentación técnica
-                        y resolviendo problemas con método: esa disciplina analítica es la base de cómo encaro
-                        cada proyecto y desarrollo.
+                        Mi base es C# y .NET: aplicaciones de escritorio (WinForms) y web (WebForms y MVC
+                        ASP.NET), con arquitectura en capas, validaciones, manejo de excepciones y persistencia
+                        en SQL Server mediante operaciones CRUD y ABM. Empecé con cursos y certificaciones, y
+                        decidí dar un paso más serio: hoy curso la Tecnicatura Universitaria en Programación en
+                        la UTN (Facultad Regional General Pacheco), mientras incorporo React, Node.js, Docker y
+                        desarrollo asistido por IA.
                     </p>
                     <p>
-                        Actualmente curso la Tecnicatura Universitaria en Programación (UTN, Facultad Regional
-                        General Pacheco) y sigo sumando certificaciones en C# y .NET, mientras incorporo
-                        Next.js, React, Node.js, PostgreSQL, Docker y desarrollo asistido por IA en mi rol
-                        freelance.
+                        En paralelo sigo trabajando. Llevo once años de empleo formal registrado en otro rubro,
+                        en la misma institución desde 2015 y sin interrupciones. De ahí vienen la
+                        responsabilidad, el cumplimiento de plazos y el trabajo sostenido en equipo que aplico
+                        a cada desarrollo.
                     </p>
                 </div>
             </div>
@@ -114,10 +125,10 @@
             </div>
 
             <div class="stack-group stack-group--proven">
-                <div class="stack-group-head" data-reveal>
+                <div class="stack-group-head">
                     <h3>Con experiencia</h3>
                 </div>
-                <div class="tech-carousel" data-carousel data-autoplay="2600" aria-roledescription="carrusel" aria-label="Tecnologías con experiencia" data-reveal>
+                <div class="tech-carousel" data-carousel data-autoplay="2600" aria-roledescription="carrusel" aria-label="Tecnologías con experiencia">
                     <div class="tech-carousel-viewport">
                         <button type="button" class="tech-slide is-active" aria-label="C#">
                             <span class="tech-slide-visual"><img class="tech-slide-logo" src="Images/tech/csharp.png" alt="C#" loading="lazy"></span>
@@ -161,18 +172,18 @@
                         </button>
                     </div>
                     <div class="tech-carousel-controls">
-                        <button type="button" class="tech-carousel-btn" data-carousel-prev aria-label="Tecnología anterior">‹</button>
+                        <button type="button" class="tech-carousel-btn" data-carousel-prev aria-label="Tecnología anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5 8 12l7 7"/></svg></button>
                         <span class="tech-carousel-counter" data-carousel-counter></span>
-                        <button type="button" class="tech-carousel-btn" data-carousel-next aria-label="Tecnología siguiente">›</button>
+                        <button type="button" class="tech-carousel-btn" data-carousel-next aria-label="Tecnología siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></button>
                     </div>
                 </div>
             </div>
 
             <div class="stack-group stack-group--training">
-                <div class="stack-group-head" data-reveal>
+                <div class="stack-group-head">
                     <h3>En aprendizaje</h3>
                 </div>
-                <div class="tech-carousel" data-carousel data-autoplay="2600" aria-roledescription="carrusel" aria-label="Tecnologías en aprendizaje" data-reveal>
+                <div class="tech-carousel" data-carousel data-autoplay="2600" aria-roledescription="carrusel" aria-label="Tecnologías en aprendizaje">
                     <div class="tech-carousel-viewport">
                         <button type="button" class="tech-slide is-active" aria-label="Next.js">
                             <span class="tech-slide-visual"><img class="tech-slide-logo" src="Images/tech/nextjs.png" alt="Next.js" loading="lazy"></span>
@@ -208,9 +219,9 @@
                         </button>
                     </div>
                     <div class="tech-carousel-controls">
-                        <button type="button" class="tech-carousel-btn" data-carousel-prev aria-label="Tecnología anterior">‹</button>
+                        <button type="button" class="tech-carousel-btn" data-carousel-prev aria-label="Tecnología anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5 8 12l7 7"/></svg></button>
                         <span class="tech-carousel-counter" data-carousel-counter></span>
-                        <button type="button" class="tech-carousel-btn" data-carousel-next aria-label="Tecnología siguiente">›</button>
+                        <button type="button" class="tech-carousel-btn" data-carousel-next aria-label="Tecnología siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></button>
                     </div>
                 </div>
             </div>
@@ -226,7 +237,7 @@
                 
             </div>
 
-            <article class="exhibit exhibit-featured" data-reveal>
+            <article class="exhibit exhibit-featured">
                 <div class="exhibit-head">
                     <span class="exhibit-date">Jun. 2026 — Actualidad</span>
                 </div>
@@ -235,8 +246,9 @@
                     <p class="exhibit-sub">Mentoreado por un líder técnico senior con más de 10 años de experiencia · proyectos para clientes reales</p>
                 </div>
                 <p>
-                    Formo parte de un equipo de programadores que toma proyectos para clientes reales de forma
-                    autónoma, aplicando lo aprendido en C# y .NET a un stack moderno de JavaScript ya en producción.
+                    Formé parte de un equipo de programadores que toma proyectos
+                    para clientes reales de forma autónoma, aplicando lo aprendido en C# y .NET a un stack
+                    moderno de JavaScript ya en producción. En paralelo sigo tomando proyectos por mi cuenta.
                 </p>
                 <ul class="exhibit-points">
                     <li>Participación en el desarrollo de un sistema de gestión para un cliente real: modelado de base de datos, definición de funcionalidades y resolución de tareas del proyecto.</li>
@@ -296,7 +308,7 @@
                 <h2>Formación técnica</h2>
             </div>
 
-            <div class="edu-featured" data-reveal>
+            <div class="edu-featured">
                 <img class="edu-logo" src="Images/edu/utn.png" alt="Universidad Tecnológica Nacional">
                 <div class="edu-text" style="text-align: center;">
                     <h3>Tecnicatura Universitaria en Programación</h3>
@@ -371,7 +383,7 @@
                 </li>
             </ul>
 
-            <div class="edu-origin" data-reveal>
+            <div class="edu-origin">
                 <p>
                     Antes de la programación: Profesorado en Enseñanza Media y Superior en Historia
                     — Universidad de Buenos Aires (UBA), marzo 2015 – agosto 2024.
@@ -386,7 +398,7 @@
             <div class="section-head">
                 <h2>Proyectos</h2>
             </div>
-            <div class="project-grid">
+            <div class="project-grid" data-reveal-group>
 
                 <article class="project-card" data-reveal>
                     <div class="project-img-wrap">
@@ -500,7 +512,7 @@
                         <h2>Contacto</h2>
                         <p class="lede">
                             ¿Buscás sumar a alguien con bases sólidas en .NET y ganas reales de seguir creciendo?
-                            Hablemos.
+                            Hablemos
                         </p>
                     </div>
                     <div class="contact-channels">
