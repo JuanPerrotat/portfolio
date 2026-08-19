@@ -54,7 +54,6 @@
 
     <!-- HERO -->
     <section class="hero wrap" id="top">
-        <p class="hero-meta" data-reveal>Disponible para nuevas oportunidades — Buenos Aires, AR</p>
         <h1 class="hero-title" data-reveal>Juan Perrotat</h1>
         <p class="hero-role" data-reveal>Desarrollador Junior — .NET &amp; JavaScript</p>
         <p class="hero-thesis" data-reveal>
@@ -165,7 +164,6 @@
                         <button type="button" class="tech-carousel-btn" data-carousel-prev aria-label="Tecnología anterior">‹</button>
                         <span class="tech-carousel-counter" data-carousel-counter></span>
                         <button type="button" class="tech-carousel-btn" data-carousel-next aria-label="Tecnología siguiente">›</button>
-                        <button type="button" class="tech-carousel-pause" data-carousel-pause aria-pressed="false">Pausar</button>
                     </div>
                 </div>
             </div>
@@ -213,7 +211,6 @@
                         <button type="button" class="tech-carousel-btn" data-carousel-prev aria-label="Tecnología anterior">‹</button>
                         <span class="tech-carousel-counter" data-carousel-counter></span>
                         <button type="button" class="tech-carousel-btn" data-carousel-next aria-label="Tecnología siguiente">›</button>
-                        <button type="button" class="tech-carousel-pause" data-carousel-pause aria-pressed="false">Pausar</button>
                     </div>
                 </div>
             </div>
@@ -393,6 +390,35 @@
 
                 <article class="project-card" data-reveal>
                     <div class="project-img-wrap">
+                        <img src="Images/vivero-humus-card.png" data-zoom-src="Images/vivero-humus.png"
+                             alt="Captura del dashboard de Vivero Humus: balance mensual por sector, ingresos y egresos" loading="lazy">
+                    </div>
+                    <div class="project-body">
+                        <h3>Vivero Humus</h3>
+                        <p class="project-desc">
+                            Sistema de gestión de caja para un vivero patagónico, desarrollado en equipo bajo la guía
+                            de un líder técnico senior. Next.js 16 con App Router y React Server Components, TypeScript
+                            de punta a punta, Prisma sobre PostgreSQL y deploy en Vercel. Carga de ventas y gastos en
+                            formularios por pasos, historial filtrable con edición y balance mensual por sector con un
+                            criterio único de devengamiento, caché reconstruible y cron de reconciliación diaria.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag tag--proven">Next.js</span>
+                            <span class="tag tag--proven">TypeScript</span>
+                            <span class="tag tag--proven">Prisma</span>
+                            <span class="tag tag--proven">PostgreSQL</span>
+                            <span class="tag tag--proven">Docker</span>
+                            <span class="tag tag--proven">Vercel</span>
+                        </div>
+                        <div class="project-links">
+                            <!-- TODO: reemplazar href="#" por el link al video de la demo -->
+                            <a class="ext" href="#" target="_blank" rel="noopener">Demo</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card" data-reveal>
+                    <div class="project-img-wrap">
                         <img src="Images/estetica-landing.png" alt="Captura de la landing de Estética Habibah" loading="lazy" style="object-position: top;">
                     </div>
                     <div class="project-body">
@@ -458,65 +484,8 @@
                     </div>
                 </article>
 
-                <article class="project-card" data-reveal>
-                    <div class="project-img-wrap">
-                        <img src="Images/winforms-gestor.jpg" alt="Captura del gestor de artículos de escritorio en WinForms" loading="lazy">
-                    </div>
-                    <div class="project-body">
-                        <h3>Gestor de Artículos (WinForms)</h3>
-                        <p class="project-desc">
-                            Aplicación de escritorio en C# .NET con arquitectura en capas. Operaciones ABM y CRUD
-                            contra SQL Server, manejo de excepciones y control de errores.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag tag--proven">C#</span>
-                            <span class="tag tag--proven">WinForms</span>
-                            <span class="tag tag--proven">SQL Server</span>
-                        </div>
-                        <div class="project-links">
-                            <a class="ext" href="https://github.com/JuanPerrotat/Primer-desarrollo-propio" target="_blank" rel="noopener">Repositorio</a>
-                        </div>
-                    </div>
-                </article>
 
-                <article class="project-card" data-reveal>
-                    <div class="project-img-wrap">
-                        <img src="Images/PokedexWeb.png" alt="Captura de la aplicación web de Pokémon" loading="lazy">
-                    </div>
-                    <div class="project-body">
-                        <h3>App Web Pokémon (WebForms)</h3>
-                        <p class="project-desc">
-                            Consumo y visualización de datos de Pokémon en ASP.NET WebForms. Arquitectura en
-                            capas, validaciones y diseño responsive con Bootstrap.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag tag--proven">C#</span>
-                            <span class="tag tag--proven">ASP.NET</span>
-                        </div>
-                        <div class="project-links">
-                            <a class="ext" href="https://github.com/JuanPerrotat/Aplicacion-Web" target="_blank" rel="noopener">Repositorio</a>
-                        </div>
-                    </div>
-                </article>
 
-                <article class="project-card" data-reveal>
-                    <div class="project-img-wrap">
-                        <img src="Images/WinformsPokedex.png" alt="Captura de la aplicación de escritorio de Pokémon" loading="lazy">
-                    </div>
-                    <div class="project-body">
-                        <h3>App de Escritorio Pokémon (WinForms)</h3>
-                        <p class="project-desc">
-                            Aplicación de escritorio en WinForms para gestión y visualización de datos de Pokémon.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag tag--proven">C#</span>
-                            <span class="tag tag--proven">WinForms</span>
-                        </div>
-                        <div class="project-links">
-                            <a class="ext" href="https://github.com/JuanPerrotat/App-Pokemon" target="_blank" rel="noopener">Repositorio</a>
-                        </div>
-                    </div>
-                </article>
 
             </div>
         </div>

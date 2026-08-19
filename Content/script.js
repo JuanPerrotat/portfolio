@@ -121,13 +121,11 @@
     var slides = Array.prototype.slice.call(carousel.querySelectorAll('.tech-slide'));
     var prevBtn = carousel.querySelector('[data-carousel-prev]');
     var nextBtn = carousel.querySelector('[data-carousel-next]');
-    var pauseBtn = carousel.querySelector('[data-carousel-pause]');
     var counter = carousel.querySelector('[data-carousel-counter]');
     var delay = parseInt(carousel.getAttribute('data-autoplay'), 10) || 3000;
     var current = slides.findIndex(function (s) { return s.classList.contains('is-active'); });
     if (current < 0) current = 0;
     var timer = null;
-    var userPaused = false;
 
     var SCALE = [1, 0.8, 0.62];
     var OPACITY = [1, 0.55, 0.28];
@@ -172,7 +170,7 @@
     }
 
     function start() {
-      if (reduceMotion || userPaused || document.hidden || slides.length < 2) return;
+      if (reduceMotion || document.hidden || slides.length < 2) return;
       stop();
       timer = setInterval(next, delay);
     }
@@ -193,19 +191,6 @@
       if (e.key === 'ArrowRight') { e.preventDefault(); next(); start(); }
     });
 
-    if (pauseBtn) {
-      if (reduceMotion) {
-        pauseBtn.hidden = true;
-      } else {
-        pauseBtn.addEventListener('click', function () {
-          userPaused = !userPaused;
-          pauseBtn.setAttribute('aria-pressed', String(userPaused));
-          pauseBtn.textContent = userPaused ? 'Reanudar' : 'Pausar';
-          if (userPaused) stop(); else start();
-        });
-      }
-    }
-
     carousel.addEventListener('mouseenter', stop);
     carousel.addEventListener('mouseleave', start);
     carousel.addEventListener('focusin', stop);
@@ -217,6 +202,85 @@
     render();
     start();
   });
+
+  /* ---- Lightbox de capturas de proyecto ----
+     Dentro de la card la captura entra en un recuadro chico y se lee mal.
+     Al clickearla se abre completa sobre un fondo oscuro. Si la card muestra
+     un recorte, data-zoom-src apunta a la imagen entera. */
+  var shots = Array.prototype.slice.call(document.querySelectorAll('.project-img-wrap img'));
+
+  if (shots.length) {
+    var lightbox = document.createElement('div');
+    lightbox.className = 'lightbox';
+    lightbox.setAttribute('data-open', 'false');
+    lightbox.setAttribute('role', 'dialog');
+    lightbox.setAttribute('aria-modal', 'true');
+    lightbox.setAttribute('aria-label', 'Captura ampliada');
+    lightbox.innerHTML =
+      '<button type="button" class="lightbox-close" aria-label="Cerrar la vista ampliada">\u00d7</button>' +
+      '<figure class="lightbox-figure">' +
+        '<div class="lightbox-scroll"><img alt=""></div>' +
+        '<figcaption class="lightbox-caption"></figcaption>' +
+        '<p class="lightbox-hint">Deslizá la imagen para recorrerla</p>' +
+      '</figure>';
+    document.body.appendChild(lightbox);
+
+    var shotScroll = lightbox.querySelector('.lightbox-scroll');
+    var shotImg = lightbox.querySelector('.lightbox-figure img');
+    var shotCaption = lightbox.querySelector('.lightbox-caption');
+    var shotClose = lightbox.querySelector('.lightbox-close');
+    var lastFocused = null;
+
+    function openShot(source) {
+      lastFocused = source;
+      shotImg.src = source.getAttribute('data-zoom-src') || source.getAttribute('src');
+      shotImg.alt = source.alt;
+      shotCaption.textContent = source.alt;
+      lightbox.setAttribute('data-open', 'true');
+      document.body.classList.add('has-lightbox');
+      shotScroll.scrollLeft = 0;
+      /* inert sobre el resto de la pagina: deja el foco dentro del overlay
+         y evita que el lector de pantalla recorra lo que quedo atras. */
+      if (main) main.setAttribute('inert', '');
+      if (siteNav) siteNav.setAttribute('inert', '');
+      shotClose.focus();
+    }
+
+    function closeShot() {
+      lightbox.setAttribute('data-open', 'false');
+      document.body.classList.remove('has-lightbox');
+      if (main) main.removeAttribute('inert');
+      if (siteNav) siteNav.removeAttribute('inert');
+      if (lastFocused) {
+        lastFocused.focus();
+        lastFocused = null;
+      }
+    }
+
+    shots.forEach(function (shot) {
+      /* la clase (y con ella el cursor de lupa) se agrega desde JS para no
+         prometer un click que sin JS no hace nada */
+      shot.classList.add('is-zoomable');
+      shot.tabIndex = 0;
+      shot.setAttribute('role', 'button');
+      shot.setAttribute('aria-label', 'Ampliar captura: ' + shot.alt);
+      shot.addEventListener('click', function () { openShot(shot); });
+      shot.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openShot(shot);
+        }
+      });
+    });
+
+    shotClose.addEventListener('click', closeShot);
+    lightbox.addEventListener('click', function (e) {
+      if (e.target === lightbox) closeShot();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && lightbox.getAttribute('data-open') === 'true') closeShot();
+    });
+  }
 
   /* ---- Sticky nav shadow on scroll ---- */
   var nav = document.querySelector('.site-nav');

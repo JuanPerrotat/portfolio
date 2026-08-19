@@ -68,6 +68,7 @@
   /* z-index scale */
   --z-nav: 100;
   --z-nav-menu: 110;
+  --z-lightbox: 150;
   --z-toast: 200;
 
   /* Fallback used before script.js measures the real nav height (and if JS
@@ -847,21 +848,6 @@ span.nav-social-icon {
   text-align: center;
 }
 
-.tech-carousel-pause {
-  font-family: var(--font-mono);
-  font-size: var(--text-2xs);
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  color: var(--muted);
-  border: 1px solid var(--border-strong);
-  border-radius: var(--radius-sm);
-  padding: 0.4em 0.75em;
-  margin-left: var(--space-xs);
-  transition: border-color var(--dur-fast) var(--ease-out-quart), color var(--dur-fast) var(--ease-out-quart);
-}
-.stack-group--proven .tech-carousel-pause:hover { border-color: var(--primary); color: var(--primary); }
-.stack-group--training .tech-carousel-pause:hover { border-color: var(--accent); color: var(--accent-text); }
-
 /* ---------- Experience: supporting role ledger ---------- */
 .role-list {
   list-style: none;
@@ -984,6 +970,10 @@ span.nav-social-icon {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: var(--space-lg);
 }
+/* Con cuatro proyectos, tres columnas dejan una card huérfana: 2x2 en desktop. */
+@media (min-width: 900px) {
+  .project-grid { grid-template-columns: repeat(2, 1fr); }
+}
 .project-card {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -1017,7 +1007,137 @@ span.nav-social-icon {
 }
 .project-links a { font-size: var(--text-xs); font-weight: 600; color: var(--primary); }
 
+/* ---------- Lightbox de capturas ----------
+   Las capturas entran en un recuadro 16/9 chico dentro de la card; al
+   clickearlas se abren completas. La clase .is-zoomable la agrega script.js,
+   asi el cursor de lupa no aparece si el JS no corre. */
+.project-img-wrap img.is-zoomable { cursor: zoom-in; }
+
+body.has-lightbox { overflow: hidden; }
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-lightbox);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1rem, 4vw, 2.5rem);
+  background: oklch(20% 0.02 250 / 0.85);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  opacity: 0;
+  /* visibility ademas de opacity: un overlay solo transparente sigue
+     capturando clicks y deja sus controles en el orden de tabulacion. */
+  visibility: hidden;
+  transition: opacity var(--dur-base) var(--ease-out-quart),
+              visibility 0s linear var(--dur-base);
+}
+.lightbox[data-open="true"] {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity var(--dur-base) var(--ease-out-quart), visibility 0s;
+}
+
+.lightbox-figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  max-width: min(100%, 1280px);
+  transform: scale(0.98);
+  transition: transform var(--dur-base) var(--ease-out-quart);
+}
+.lightbox[data-open="true"] .lightbox-figure { transform: none; }
+
+/* La imagen vive dentro de un contenedor que puede desplazarse: en mobile
+   se muestra mas ancha que la pantalla para que el texto sea legible, y se
+   recorre deslizando. */
+.lightbox-scroll {
+  max-width: 100%;
+  overflow: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+}
+.lightbox-figure img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  /* deja aire para el boton de cerrar y el epigrafe; dvh evita que la barra
+     del navegador en mobile recorte la imagen */
+  max-height: calc(100vh - 9rem);
+  max-height: calc(100dvh - 9rem);
+  object-fit: contain;
+}
+
+.lightbox-hint { display: none; }
+
+@media (max-width: 700px) {
+  /* a ancho de pantalla una captura de escritorio queda ilegible: se agranda
+     a mas del viewport y se recorre en horizontal */
+  .lightbox-figure img {
+    width: max(200vw, 46rem);
+    max-width: none;
+    max-height: none;
+  }
+  .lightbox-hint { display: block; }
+}
+.lightbox-caption {
+  font-size: var(--text-xs);
+  color: oklch(96% 0.01 250);
+  text-align: center;
+  max-width: 60ch;
+}
+.lightbox-hint {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  color: oklch(88% 0.01 250);
+  text-align: center;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: clamp(0.75rem, 3vw, 1.5rem);
+  right: clamp(0.75rem, 3vw, 1.5rem);
+  width: 2.75rem;
+  height: 2.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: oklch(96% 0.01 250);
+  background: oklch(100% 0 0 / 0.12);
+  border: 1px solid oklch(100% 0 0 / 0.28);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background var(--dur-fast) var(--ease-out-quart),
+              border-color var(--dur-fast) var(--ease-out-quart);
+}
+/* :active como equivalente tactil de :hover */
+.lightbox-close:hover,
+.lightbox-close:focus-visible,
+.lightbox-close:active {
+  background: oklch(100% 0 0 / 0.22);
+  border-color: oklch(100% 0 0 / 0.5);
+}
+
 /* ---------- Contact ---------- */
+/* El lede de contacto usa el ancho completo de la columna: lo que lo cortaba
+   antes de llegar al borde era el max-width de .section-head (42rem), y sobre
+   esa columna angosta la particion silabica de los <p> partia "se-guir".
+   Mismo destrabe que #sobre-mi. */
+#contacto .section-head { max-width: none; }
+#contacto .lede {
+  max-width: none;
+  hyphens: manual;
+  -webkit-hyphens: manual;
+}
+
 .contact-grid {
   display: flex;
   flex-wrap: wrap;
